@@ -60,6 +60,4 @@ python AQI_Model.py
 
 This will execute the full pipeline, print evaluation metrics (MAE, RMSE, R²), and save the final prediction to predicted_pm25.csv.
 
-Contributors:
-   * Indraneel Chatterjee - DataDetective-Neel
-   * Kanishk Garg
+
