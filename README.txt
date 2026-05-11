@@ -5,7 +5,7 @@ The primary workflow involves extracting, cleaning, and merging data from three 
 1. Aerosol Optical Depth (AOD) from INSAT-3DR/3DS satellites (in .h5 format).
 2. Ground-level PM2.5 measurements from the Central Pollution Control Board (CPCB) (in .csv format).
 3. Meteorological data from NASA's MERRA-2 reanalysis (in .nc format).
-The project is structured into a Jupyter Notebook for exploration and a standalone Python script for the final, consolidated modeling process.
+The project is structured into a Jupyter Notebook for exploration and a standalone Python script for the final, consolidated modelling process.
 Repository
 This project is hosted on GitHub. You can view the complete source code, track issues, and contribute to the project here:
 * GitHub Repository: https://github.com/DataDetective-Neel/AeroSphinx
@@ -20,7 +20,7 @@ The prediction process follows these key steps:
    * Historical PM2.5 data is read from CPCB's CSV files.
    * Meteorological variables (like temperature, pressure, humidity, wind speed) are extracted from MERRA-2 NetCDF (.nc) files.
 2. Data Preprocessing:
-   * Timestamps are parsed and standardized across all datasets.
+   * Timestamps are parsed and standardised across all datasets.
    * Data is aggregated to a daily frequency to ensure consistency for merging.
 3. Feature Engineering:
    * To improve model accuracy, additional features are created from the raw meteorological data, such as:
@@ -54,12 +54,8 @@ Create the following directory structure and place your data files accordingly:
 
 The scripts also generate intermediate files like aod_data.csv and combined_pm2.5_para.csv.
 3. Execution
-* For Exploration: Open and run the cells in Data_Reading.ipynb using Jupyter Lab or Jupyter Notebook to see the data processing and modeling steps in detail.
+* For Exploration: Open and run the cells in Data_Reading.ipynb using Jupyter Lab or Jupyter Notebook to see the data processing and modelling steps in detail.
 * For Prediction: Run the main Python script from your terminal:
 python AQI_Model.py
 
 This will execute the full pipeline, print evaluation metrics (MAE, RMSE, R²), and save the final prediction to predicted_pm25.csv.
-
-Contributors:
-   * Indraneel Chatterjee - DataDetective-Neel
-   * Kanishk Garg
