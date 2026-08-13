@@ -1,0 +1,124 @@
+{
+  "coverage": {
+    "cpcb_daily_rows": 3022,
+    "cpcb_start": "2016-01-01",
+    "cpcb_end": "2024-12-31",
+    "aod_daily_rows": 139,
+    "aod_start": "2024-01-01",
+    "aod_end": "2024-06-18",
+    "merra_daily_rows": 172,
+    "merra_start": "2024-01-01",
+    "merra_end": "2024-06-20",
+    "model_rows": 139,
+    "model_start": "2024-01-07",
+    "model_end": "2024-06-18"
+  },
+  "features_requested": [
+    "AOD",
+    "T2M",
+    "TS",
+    "QV2M",
+    "U10M",
+    "V10M",
+    "SLP",
+    "PBLH",
+    "Temp_Diff",
+    "Humidity_Ratio",
+    "PM25_Lag_1",
+    "PM25_Lag_2",
+    "PM25_Lag_3",
+    "day_sin",
+    "day_cos",
+    "month_sin",
+    "month_cos"
+  ],
+  "features_used": [
+    "AOD",
+    "T2M",
+    "TS",
+    "QV2M",
+    "U10M",
+    "V10M",
+    "SLP",
+    "Temp_Diff",
+    "Humidity_Ratio",
+    "PM25_Lag_1",
+    "PM25_Lag_2",
+    "PM25_Lag_3",
+    "day_sin",
+    "day_cos",
+    "month_sin",
+    "month_cos"
+  ],
+  "features_unavailable": [
+    "PBLH"
+  ],
+  "split": {
+    "strategy": "fallback_single_period_chronological_60_20_20",
+    "train_start": "2024-01-07",
+    "train_end": "2024-04-13",
+    "validation_start": "2024-04-15",
+    "validation_end": "2024-05-17",
+    "test_start": "2024-05-18",
+    "test_end": "2024-06-18",
+    "n_train": 83,
+    "n_validation": 28,
+    "n_test": 28
+  },
+  "rf_tuning": {
+    "params": {
+      "n_estimators": 200,
+      "max_depth": 10,
+      "min_samples_leaf": 1,
+      "max_features": "sqrt"
+    },
+    "validation_MAE": 24.156646450222063
+  },
+  "xgb_tuning": {
+    "params": {
+      "n_estimators": 150,
+      "max_depth": 2,
+      "learning_rate": 0.03,
+      "subsample": 0.85,
+      "colsample_bytree": 0.85
+    },
+    "validation_MAE": 26.466977553652118
+  },
+  "metrics": {
+    "RandomForest": {
+      "MAE": 38.721434529668045,
+      "RMSE": 44.42083793850419,
+      "R2": -2.483726497483993,
+      "AQI_Accuracy": 0.14285714285714285
+    },
+    "XGBoost": {
+      "MAE": 33.017061469668434,
+      "RMSE": 39.38780045390819,
+      "R2": -1.739012514628984,
+      "AQI_Accuracy": 0.35714285714285715
+    },
+    "WeightedEnsemble_0.6RF_0.4XGB": {
+      "MAE": 36.36688869115753,
+      "RMSE": 42.21312048375058,
+      "R2": -2.1460489319455505,
+      "AQI_Accuracy": 0.21428571428571427
+    }
+  },
+  "scientific_issues": [
+    "Preferred 2016-2022/2023/2024 split is impossible for the strict multi-source dataset because local AOD and MERRA-2 files cover only a 2024 subset.",
+    "Local MERRA-2 NetCDF files do not contain PBLH; the model excludes PBLH and reports it as unavailable rather than fabricating it.",
+    "AOD granules include fill values (-999) and invalid negative values; these are filtered before daily aggregation.",
+    "The resulting strict multi-source benchmark is small and should not be reported as a full urban-India generalization result.",
+    "MERRA variables absent from all local files: PBLH.",
+    "MERRA variables partially missing before complete-case filtering: V10M missing on 2/172 days.",
+    "Unavailable requested model features removed from empirical training: PBLH."
+  ],
+  "code_issues": [
+    "Legacy scripts use random train_test_split(), causing time-series leakage risk.",
+    "Legacy scripts hard-code prediction dates and manually inject AOD values.",
+    "Several scripts reference missing files such as ../data/merged_pm_aod.csv and sample_insat_aod.nc.",
+    "The old target column encoding appears corrupted in source CSV headers; the new pipeline detects the PM2.5 column by name pattern.",
+    "Duplicate root and ML model scripts are byte-identical and should not both be maintained.",
+    "Synthetic demo code in pawanai-project should be excluded from manuscript performance claims."
+  ]
+}
