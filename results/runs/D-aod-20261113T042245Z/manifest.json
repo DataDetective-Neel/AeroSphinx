@@ -1,0 +1,65 @@
+{
+  "run_id": "D-aod-20261113T042245Z",
+  "generated_utc": "2026-11-13T04:22:45+00:00",
+  "git": {
+    "head_sha": "341b6bd8d3c204e781b3f7bd8ec06f2d453377ad",
+    "branch": "main",
+    "dirty": true,
+    "dirty_entries": 4
+  },
+  "environment": {
+    "python": "3.14.6",
+    "platform": "Linux-7.0.12-arch1-1-x86_64-with-glibc2.43",
+    "packages": {
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "scikit-learn": "1.9.1",
+      "xgboost": "3.4.1",
+      "joblib": "1.6.0",
+      "matplotlib": "3.11.2",
+      "h5py": "3.16.0",
+      "xarray": "2026.9.0",
+      "netCDF4": "1.7.5.1.post1",
+      "scipy": "1.18.1",
+      "PyYAML": "6.0.3"
+    }
+  },
+  "inputs": {
+    "aod_dir": "data/aod"
+  },
+  "dataset": {
+    "n_granules": 169,
+    "n_days": 166,
+    "date_range": [
+      "2024-01-01",
+      "2024-06-18"
+    ],
+    "days_with_zero_valid_pixels": 27,
+    "mean_valid_pixels": 12.102409638554217
+  },
+  "rules": {
+    "insat_aod": {
+      "fill_value": -999.0,
+      "aod_valid_min": 0.0,
+      "aod_valid_max": 5.0,
+      "collocation_window_deg": 0.25
+    },
+    "station": {
+      "name": "Faridabad",
+      "latitude": 28.4089,
+      "longitude": 77.3178
+    },
+    "workstream": "Phase 4 - INSAT-3D AOD validation",
+    "orientation_corroborated": true
+  },
+  "outputs": {
+    "run_dir": "results/runs/D-aod-20261113T042245Z",
+    "files": [
+      "aod_coverage.csv",
+      "aod_daily.csv",
+      "aod_orientation_check.json",
+      "aod_structural_audit.json",
+      "aod_window_sensitivity.csv"
+    ]
+  }
+}

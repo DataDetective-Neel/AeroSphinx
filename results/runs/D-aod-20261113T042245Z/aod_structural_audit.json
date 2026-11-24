@@ -1,0 +1,29 @@
+{
+  "n_granules": 169,
+  "shapes": {
+    "(1, 551, 551)": 169
+  },
+  "datasets": {
+    "('AOD', 'latitude', 'longitude', 'time')": 169
+  },
+  "dimension_scale_bindings": {
+    "(('/time',), ('/latitude',), ('/longitude',))": 169
+  },
+  "fill_values": {
+    "-999.0": 169
+  },
+  "scale_factors": {
+    "False": 169
+  },
+  "latitude_descending": {
+    "true": 169
+  },
+  "longitude_ascending": {
+    "true": 169
+  },
+  "distinct_dates": 166,
+  "n_duplicate_date_overpass_keys": 0,
+  "duplicate_keys": [],
+  "granules_with_zero_valid_pixels": 27,
+  "has_qa_dataset": false
+}

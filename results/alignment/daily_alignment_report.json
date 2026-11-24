@@ -1,0 +1,177 @@
+{
+  "sources": [
+    "station_met",
+    "merra",
+    "aod"
+  ],
+  "coverage": [
+    {
+      "source": "station_met",
+      "observed_rows": 2979,
+      "missing_rows": 0,
+      "observed_fraction": 1.0,
+      "first_observed": "2016-01-01",
+      "last_observed": "2024-12-31",
+      "observed_years": "2016,2017,2018,2019,2020,2021,2022,2023,2024"
+    },
+    {
+      "source": "merra",
+      "observed_rows": 172,
+      "missing_rows": 2807,
+      "observed_fraction": 0.057737495803961064,
+      "first_observed": "2024-01-01",
+      "last_observed": "2024-06-20",
+      "observed_years": "2024"
+    },
+    {
+      "source": "aod",
+      "observed_rows": 139,
+      "missing_rows": 2840,
+      "observed_fraction": 0.04665995300436388,
+      "first_observed": "2024-01-07",
+      "last_observed": "2024-06-18",
+      "observed_years": "2024"
+    }
+  ],
+  "missingness": [
+    {
+      "source": "station_met",
+      "n_observed": 2979,
+      "n_unobserved": 0,
+      "target_mean_when_observed": 93.4273022301904,
+      "target_mean_when_unobserved": NaN,
+      "target_mean_difference": NaN
+    },
+    {
+      "source": "merra",
+      "n_observed": 172,
+      "n_unobserved": 2807,
+      "target_mean_when_observed": 106.92808267293037,
+      "target_mean_when_unobserved": 92.6000367381522,
+      "target_mean_difference": 14.328045934778174
+    },
+    {
+      "source": "aod",
+      "n_observed": 139,
+      "n_unobserved": 2840,
+      "target_mean_when_observed": 105.34385349935748,
+      "target_mean_when_unobserved": 92.8440625730023,
+      "target_mean_difference": 12.499790926355175
+    }
+  ],
+  "rows": 2979,
+  "date_range": [
+    "2016-01-01",
+    "2024-12-31"
+  ],
+  "n_sources": 3,
+  "n_sources_distribution": {
+    "0": 0,
+    "1": 2807,
+    "2": 33,
+    "3": 139
+  },
+  "rows_with_all_sources_observed": 139,
+  "fraction_with_all_sources_observed": 0.04665995300436388,
+  "rows_with_no_source_observed": 0,
+  "per_year": {
+    "2016": {
+      "rows": 261,
+      "all_sources_observed": 0,
+      "fraction_all_sources": 0.0
+    },
+    "2017": {
+      "rows": 254,
+      "all_sources_observed": 0,
+      "fraction_all_sources": 0.0
+    },
+    "2018": {
+      "rows": 340,
+      "all_sources_observed": 0,
+      "fraction_all_sources": 0.0
+    },
+    "2019": {
+      "rows": 310,
+      "all_sources_observed": 0,
+      "fraction_all_sources": 0.0
+    },
+    "2020": {
+      "rows": 359,
+      "all_sources_observed": 0,
+      "fraction_all_sources": 0.0
+    },
+    "2021": {
+      "rows": 362,
+      "all_sources_observed": 0,
+      "fraction_all_sources": 0.0
+    },
+    "2022": {
+      "rows": 363,
+      "all_sources_observed": 0,
+      "fraction_all_sources": 0.0
+    },
+    "2023": {
+      "rows": 364,
+      "all_sources_observed": 0,
+      "fraction_all_sources": 0.0
+    },
+    "2024": {
+      "rows": 366,
+      "all_sources_observed": 139,
+      "fraction_all_sources": 0.3797814207650273
+    }
+  },
+  "validation": {
+    "passed": true,
+    "n_checks": 9,
+    "n_failed": 0,
+    "failed_checks": [],
+    "checks": [
+      {
+        "check": "station_met:counts_sum_to_rows",
+        "passed": true,
+        "detail": "2979 observed + 0 missing against 2979 rows"
+      },
+      {
+        "check": "station_met:fraction_in_unit_interval",
+        "passed": true,
+        "detail": "observed fraction 1.0"
+      },
+      {
+        "check": "merra:counts_sum_to_rows",
+        "passed": true,
+        "detail": "172 observed + 2807 missing against 2979 rows"
+      },
+      {
+        "check": "merra:fraction_in_unit_interval",
+        "passed": true,
+        "detail": "observed fraction 0.057737495803961064"
+      },
+      {
+        "check": "aod:counts_sum_to_rows",
+        "passed": true,
+        "detail": "139 observed + 2840 missing against 2979 rows"
+      },
+      {
+        "check": "aod:fraction_in_unit_interval",
+        "passed": true,
+        "detail": "observed fraction 0.04665995300436388"
+      },
+      {
+        "check": "station_met:missingness_counts_sum_to_rows",
+        "passed": true,
+        "detail": "2979 observed + 0 unobserved against 2979 rows"
+      },
+      {
+        "check": "merra:missingness_counts_sum_to_rows",
+        "passed": true,
+        "detail": "172 observed + 2807 unobserved against 2979 rows"
+      },
+      {
+        "check": "aod:missingness_counts_sum_to_rows",
+        "passed": true,
+        "detail": "139 observed + 2840 unobserved against 2979 rows"
+      }
+    ]
+  }
+}

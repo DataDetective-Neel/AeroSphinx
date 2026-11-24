@@ -1,0 +1,64 @@
+{
+  "run_id": "B-coldstart-20261112T164037Z",
+  "generated_utc": "2026-11-12T16:40:37+00:00",
+  "git": {
+    "head_sha": "77332c04a1d6ebe6f59ba6abdd90b39caaa22733",
+    "branch": "main",
+    "dirty": true,
+    "dirty_entries": 5
+  },
+  "environment": {
+    "python": "3.14.6",
+    "platform": "Linux-7.0.12-arch1-1-x86_64-with-glibc2.43",
+    "packages": {
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "scikit-learn": "1.9.1",
+      "xgboost": "3.4.1",
+      "joblib": "1.6.0",
+      "matplotlib": "3.11.2",
+      "h5py": "3.16.0",
+      "xarray": "2026.9.0",
+      "netCDF4": "1.7.5.1.post1",
+      "scipy": "1.18.1",
+      "PyYAML": "6.0.3"
+    }
+  },
+  "inputs": {
+    "features_csv": "data/processed/track_a_features.csv",
+    "source_run": "A-roll20261112T163107Z"
+  },
+  "dataset": {
+    "n_predictions": 2682,
+    "n_folds": 96
+  },
+  "rules": {
+    "evaluation": {
+      "strategy": "rolling_origin",
+      "min_train_days": 365,
+      "min_validation_days": 30,
+      "test_block_days": 30,
+      "step_days": 30,
+      "report_paired_tests": true,
+      "report_bootstrap_ci": true,
+      "bootstrap_samples": 10000,
+      "alpha": 0.05
+    },
+    "workstream": "B - cold-start and extrapolation diagnostics",
+    "mitigations_tested": [
+      "none",
+      "persistence_fallback",
+      "regime_aware_fallback"
+    ],
+    "clipping_excluded": true
+  },
+  "outputs": {
+    "run_dir": "results/runs/B-coldstart-20261112T164037Z",
+    "files": [
+      "cold_start_summary.json",
+      "error_vs_out_of_range.csv",
+      "extrapolation_conditioned.csv",
+      "mitigations.csv"
+    ]
+  }
+}

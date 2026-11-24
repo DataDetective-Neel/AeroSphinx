@@ -1,0 +1,107 @@
+{
+  "run_id": "A-horizon-20261112T174704Z",
+  "generated_utc": "2026-11-12T17:47:04+00:00",
+  "git": {
+    "head_sha": "b9e32ca67e484c7fe72abfe60823a081ededfa2d",
+    "branch": "main",
+    "dirty": true,
+    "dirty_entries": 6
+  },
+  "environment": {
+    "python": "3.14.6",
+    "platform": "Linux-7.0.12-arch1-1-x86_64-with-glibc2.43",
+    "packages": {
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "scikit-learn": "1.9.1",
+      "xgboost": "3.4.1",
+      "joblib": "1.6.0",
+      "matplotlib": "3.11.2",
+      "h5py": "3.16.0",
+      "xarray": "2026.9.0",
+      "netCDF4": "1.7.5.1.post1",
+      "scipy": "1.18.1",
+      "PyYAML": "6.0.3"
+    }
+  },
+  "inputs": {
+    "features_csv": "data/processed/track_a_features.csv",
+    "features_sha256": "6fd9e35e141e92ce8d9dd83342a7463a82ddc38098b69ad7ec97fbcc7e4bc18d"
+  },
+  "dataset": {
+    "rows": 2979,
+    "date_range": [
+      "2016-01-01",
+      "2024-12-31"
+    ]
+  },
+  "rules": {
+    "evaluation": {
+      "strategy": "rolling_origin",
+      "min_train_days": 365,
+      "min_validation_days": 30,
+      "test_block_days": 30,
+      "step_days": 30,
+      "report_paired_tests": true,
+      "report_bootstrap_ci": true,
+      "bootstrap_samples": 10000,
+      "alpha": 0.05
+    },
+    "workstream": "A - multi-horizon forecasting",
+    "configuration": {
+      "horizons": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "methods": [
+        "direct",
+        "recursive"
+      ],
+      "models": [
+        "ridge",
+        "random_forest",
+        "xgboost"
+      ],
+      "features": [
+        "PM25_Lag_1",
+        "PM25_Lag_2",
+        "PM25_Lag_3",
+        "PM25_Lag_7",
+        "PM25_Roll3",
+        "PM25_Roll7",
+        "day_sin",
+        "day_cos",
+        "month_sin",
+        "month_cos"
+      ],
+      "baseline": "persistence at the horizon-appropriate lag",
+      "n_folds": 95,
+      "n_forecasts": 2604,
+      "min_train_days": 365,
+      "test_block_days": 30,
+      "step_days": 30,
+      "bootstrap_samples": 10000,
+      "alpha": 0.05,
+      "seed": 42,
+      "issue_date_rule": "last day of the fold's test block",
+      "availability_contract": "only observations dated on or before the issue date are used; no future observed AOD or MERRA-2 is ever consulted",
+      "comparability_note": "Each horizon forecasts a DIFFERENT target date from the same issue date, so cross-horizon MAE differences partly reflect target-date difficulty rather than horizon difficulty. The within-issue-date comparison in within_issue.csv isolates the horizon effect."
+    }
+  },
+  "outputs": {
+    "run_dir": "results/runs/A-horizon-20261112T174704Z",
+    "files": [
+      "by_horizon.csv",
+      "comparisons.csv",
+      "forecasts.csv",
+      "metrics.csv",
+      "metrics.json",
+      "persistence_by_lag.csv",
+      "within_issue.csv",
+      "within_issue_summary.csv"
+    ]
+  }
+}

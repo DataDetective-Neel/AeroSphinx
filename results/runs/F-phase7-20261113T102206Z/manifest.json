@@ -1,0 +1,53 @@
+{
+  "run_id": "F-phase7-20261113T102206Z",
+  "generated": "20261113T102206Z",
+  "n_total_ground_rows": 2979,
+  "group_sets": {
+    "ground_only": [],
+    "ground_station_met": [
+      "station_met"
+    ],
+    "ground_aod": [
+      "aod"
+    ],
+    "ground_merra": [
+      "merra"
+    ],
+    "ground_all": [
+      "station_met",
+      "merra",
+      "aod"
+    ]
+  },
+  "fusion_rules": {
+    "date_column": "Date",
+    "target": "PM25",
+    "sources": [
+      "station_met",
+      "merra",
+      "aod"
+    ],
+    "missing_value_policy": "preserve",
+    "missing_value_note": "Missing environmental observations are preserved as NaN. No forward-fill, interpolation or imputation is permitted. Per-source <source>_observed flags and <source>_observation_age_days columns make the missingness visible instead of manufacturing a value.\n",
+    "min_observed_values_per_source": 1,
+    "support_counts_are_metadata": true,
+    "min_matched_rows_for_inference": 30,
+    "min_matched_rows_rationale": "Same threshold as aerosphinx.tracks.workstream_c group comparisons. A source with fewer matched rows is reported but flagged as insufficient evidence; Phase 5's MERRA-2 group had 5 matched test rows and was declared untestable on that basis.\n"
+  },
+  "sources": {
+    "station_met": {
+      "observed": 2979,
+      "fraction": 1.0
+    },
+    "merra": {
+      "observed": 172,
+      "fraction": 0.057737495803961064
+    },
+    "aod": {
+      "observed": 139,
+      "fraction": 0.04665995300436388
+    }
+  },
+  "phase": "7",
+  "objective": "Track B ablations using fused availability mask"
+}

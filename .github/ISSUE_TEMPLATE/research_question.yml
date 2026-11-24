@@ -1,0 +1,35 @@
+name: Research question or objection
+description: A claim, a method or an artefact looks wrong
+labels: ["research"]
+body:
+  - type: textarea
+    id: claim
+    attributes:
+      label: The claim you are questioning
+      description: Quote it — the sentence from the README, the report or the dashboard.
+    validations:
+      required: true
+  - type: textarea
+    id: artefact
+    attributes:
+      label: The artefact you are looking at
+      description: |
+        File, column and row, or the matrix configuration and track. A claim
+        without its artefact cannot be checked.
+      placeholder: results/experiment_matrix/matrix_ablations.csv, track B, M4 vs M1
+    validations:
+      required: true
+  - type: textarea
+    id: objection
+    attributes:
+      label: What you think is wrong
+      description: |
+        Leakage, a missing control, an over-strong claim, an arithmetic error,
+        an inference that does not follow from the interval.
+    validations:
+      required: true
+  - type: textarea
+    id: alternative
+    attributes:
+      label: What would settle it
+      description: The test, comparison or correction you would find convincing.

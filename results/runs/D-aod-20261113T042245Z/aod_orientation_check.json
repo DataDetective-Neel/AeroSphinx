@@ -1,0 +1,73 @@
+{
+  "n_granules_examined": 60,
+  "boxes": {
+    "ArabianSea_ocean": [
+      [
+        8.0,
+        18.0
+      ],
+      [
+        60.0,
+        67.0
+      ]
+    ],
+    "BayOfBengal_ocean": [
+      [
+        8.0,
+        18.0
+      ],
+      [
+        85.0,
+        93.0
+      ]
+    ],
+    "CentralIndia_land": [
+      [
+        22.0,
+        28.0
+      ],
+      [
+        75.0,
+        85.0
+      ]
+    ],
+    "NWIndia_land": [
+      [
+        25.0,
+        30.0
+      ],
+      [
+        68.0,
+        75.0
+      ]
+    ]
+  },
+  "hypotheses": {
+    "dimension_scale": {
+      "mean_AOD_by_box": {
+        "ArabianSea_ocean": 0.3139068648986312,
+        "BayOfBengal_ocean": 0.4651081434625617,
+        "CentralIndia_land": 0.7369492502611051,
+        "NWIndia_land": 0.8696827002467642
+      },
+      "ocean_mean": 0.38950750418059643,
+      "land_mean": 0.8033159752539347,
+      "ocean_land_contrast": 0.4138084710733383,
+      "physically_plausible": true
+    },
+    "transposed": {
+      "mean_AOD_by_box": {
+        "ArabianSea_ocean": 0.7617229678233841,
+        "BayOfBengal_ocean": 0.36050538761457657,
+        "CentralIndia_land": 0.3315972101836901,
+        "NWIndia_land": 0.31116487404794535
+      },
+      "ocean_mean": 0.5611141777189803,
+      "land_mean": 0.32138104211581775,
+      "ocean_land_contrast": -0.23973313560316256,
+      "physically_plausible": false
+    }
+  },
+  "dimension_scale_orientation_corroborated": true,
+  "interpretation": "The dimension-scale orientation (dim1=latitude, dim2=longitude) is independently corroborated: it is the only orientation under which aerosol optical depth is lower over the open ocean than over continental land."
+}

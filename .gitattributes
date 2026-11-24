@@ -1,0 +1,29 @@
+# Normalise line endings; keep provider binaries untouched.
+* text=auto eol=lf
+
+# Source and docs are text.
+*.py    text eol=lf
+*.ts    text eol=lf
+*.tsx   text eol=lf
+*.md    text eol=lf
+*.yml   text eol=lf
+*.yaml  text eol=lf
+*.json  text eol=lf
+*.csv   text eol=lf
+
+# Provider granules and trained artefacts are binary; never attempt to diff,
+# merge or convert them.
+*.h5     binary
+*.hdf5   binary
+*.nc     binary
+*.joblib binary
+*.pkl    binary
+*.png    binary
+*.jpg    binary
+*.svg    text eol=lf
+
+# Large tabular inputs: keep them out of diffs so a review shows code, and
+# mark the generated results as reviewable data rather than source.
+data/**/*.csv  -diff
+data/**/*.h5   -diff
+data/**/*.nc   -diff

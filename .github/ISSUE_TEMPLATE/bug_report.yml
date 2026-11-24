@@ -1,0 +1,47 @@
+name: Bug report
+description: Something in the code, the API or the dashboard is wrong
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For a scientific objection, use the "Research question" template instead —
+        it asks for the artefact, which is what makes it actionable.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happens
+      description: What you observed, and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: How to reproduce
+      description: The exact command, request or click path. Include the commit.
+      placeholder: |
+        commit: 72180c6
+        command: make run-matrix
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Output
+      description: The error or the wrong value, quoted verbatim.
+      render: shell
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Ingestion / data
+        - Track A
+        - Track B / fusion
+        - Evaluation / statistics
+        - API
+        - Dashboard
+        - Packaging / CI
+        - Documentation
+    validations:
+      required: true

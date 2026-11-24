@@ -1,0 +1,272 @@
+[
+  {
+    "variable": "air_temperature",
+    "source_column": "AT (\u00b0C)",
+    "physical_meaning": "Ambient air temperature",
+    "unit": "degree Celsius",
+    "station_or_source": "station-local measurement",
+    "measurement_timestamp": "row timestamp (hourly grid)",
+    "availability_timestamp": "UNKNOWN",
+    "missing_percentage": 5.806,
+    "valid_range": "[0.240, 46.090]",
+    "quality_flag": "timing unverified",
+    "forecast_usable": false,
+    "notes": "No publication or upload timestamp is present in the CPCB export, so the time at which this value became available to a forecaster cannot be established from the local files. Measurement time is the row timestamp.",
+    "evidence": {
+      "timestamps_on_exact_hour": true,
+      "mean_distinct_values_per_day": 22.25,
+      "diurnal_range": 7.897,
+      "diurnal_cycle_present": true,
+      "looks_like_hourly_measurement": true,
+      "timing_verdict": "hourly measurement",
+      "merra_comparison": {
+        "verdict": "station-local measurement",
+        "applicable": true,
+        "compared_against": "T2M",
+        "n_matched": 516,
+        "correlation_with_merra": 0.9303,
+        "mean_difference": 0.673,
+        "sd_of_difference": 3.97,
+        "n_identical_values": 0,
+        "interpretation": "Values are not identical to reanalysis and differ by a station-scale amount, so the column is a genuine local measurement rather than a reanalysis field."
+      },
+      "n_values": 74330
+    }
+  },
+  {
+    "variable": "relative_humidity",
+    "source_column": "RH (%)",
+    "physical_meaning": "Relative humidity",
+    "unit": "percent",
+    "station_or_source": "station-local measurement",
+    "measurement_timestamp": "row timestamp (hourly grid)",
+    "availability_timestamp": "UNKNOWN",
+    "missing_percentage": 6.069,
+    "valid_range": "[0.110, 100.000]",
+    "quality_flag": "timing unverified",
+    "forecast_usable": false,
+    "notes": "No publication or upload timestamp is present in the CPCB export, so the time at which this value became available to a forecaster cannot be established from the local files. Measurement time is the row timestamp.",
+    "evidence": {
+      "timestamps_on_exact_hour": true,
+      "mean_distinct_values_per_day": 21.2,
+      "diurnal_range": 20.354,
+      "diurnal_cycle_present": true,
+      "looks_like_hourly_measurement": true,
+      "timing_verdict": "hourly measurement",
+      "merra_comparison": {
+        "verdict": "station-local measurement",
+        "applicable": true,
+        "compared_against": "QV2M",
+        "n_matched": 516,
+        "correlation_with_merra": -0.0975,
+        "mean_difference": 35.907,
+        "sd_of_difference": 21.697,
+        "n_identical_values": 0,
+        "interpretation": "Values are not identical to reanalysis and differ by a station-scale amount, so the column is a genuine local measurement rather than a reanalysis field."
+      },
+      "n_values": 74123
+    }
+  },
+  {
+    "variable": "wind_speed",
+    "source_column": "WS (m/s)",
+    "physical_meaning": "Wind speed",
+    "unit": "metres per second",
+    "station_or_source": "station-local measurement (inferred from the shared hourly grid and a physically coherent diurnal cycle; no comparable reanalysis field exists for a direct test)",
+    "measurement_timestamp": "row timestamp (hourly grid)",
+    "availability_timestamp": "UNKNOWN",
+    "missing_percentage": 4.987,
+    "valid_range": "[0.020, 20.250]",
+    "quality_flag": "timing unverified",
+    "forecast_usable": false,
+    "notes": "No publication or upload timestamp is present in the CPCB export, so the time at which this value became available to a forecaster cannot be established from the local files. Measurement time is the row timestamp.",
+    "evidence": {
+      "timestamps_on_exact_hour": true,
+      "mean_distinct_values_per_day": 19.62,
+      "diurnal_range": 0.891,
+      "diurnal_cycle_present": false,
+      "looks_like_hourly_measurement": false,
+      "timing_verdict": "irregular",
+      "merra_comparison": {
+        "verdict": "no comparable reanalysis field",
+        "applicable": false,
+        "interpretation": "MERRA-2 provides no directly corresponding field for this column, so station-locality cannot be tested by comparison. It is established for temperature by the hour-matched test and inferred for the rest from the shared hourly grid and physically coherent diurnal cycles."
+      },
+      "n_values": 74977
+    }
+  },
+  {
+    "variable": "wind_direction",
+    "source_column": "WD (deg)",
+    "physical_meaning": "Wind direction",
+    "unit": "degrees",
+    "station_or_source": "station-local measurement (inferred from the shared hourly grid and a physically coherent diurnal cycle; no comparable reanalysis field exists for a direct test)",
+    "measurement_timestamp": "row timestamp (hourly grid)",
+    "availability_timestamp": "UNKNOWN",
+    "missing_percentage": 5.107,
+    "valid_range": "[10.830, 350.340]",
+    "quality_flag": "timing unverified",
+    "forecast_usable": false,
+    "notes": "No publication or upload timestamp is present in the CPCB export, so the time at which this value became available to a forecaster cannot be established from the local files. Measurement time is the row timestamp.",
+    "evidence": {
+      "timestamps_on_exact_hour": true,
+      "mean_distinct_values_per_day": 22.57,
+      "diurnal_range": 5.226,
+      "diurnal_cycle_present": true,
+      "looks_like_hourly_measurement": true,
+      "timing_verdict": "hourly measurement",
+      "merra_comparison": {
+        "verdict": "no comparable reanalysis field",
+        "applicable": false,
+        "interpretation": "MERRA-2 provides no directly corresponding field for this column, so station-locality cannot be tested by comparison. It is established for temperature by the hour-matched test and inferred for the rest from the shared hourly grid and physically coherent diurnal cycles."
+      },
+      "n_values": 74882
+    }
+  },
+  {
+    "variable": "rainfall",
+    "source_column": "RF (mm)",
+    "physical_meaning": "Hourly rainfall",
+    "unit": "millimetres",
+    "station_or_source": "station-local measurement (inferred from the shared hourly grid and a physically coherent diurnal cycle; no comparable reanalysis field exists for a direct test)",
+    "measurement_timestamp": "row timestamp (hourly grid)",
+    "availability_timestamp": "UNKNOWN",
+    "missing_percentage": 3.827,
+    "valid_range": "[0.000, 14.000]",
+    "quality_flag": "timing unverified",
+    "forecast_usable": false,
+    "notes": "No publication or upload timestamp is present in the CPCB export, so the time at which this value became available to a forecaster cannot be established from the local files. Measurement time is the row timestamp.",
+    "evidence": {
+      "timestamps_on_exact_hour": true,
+      "mean_distinct_values_per_day": 1.76,
+      "diurnal_range": 0.012,
+      "diurnal_cycle_present": false,
+      "looks_like_hourly_measurement": false,
+      "timing_verdict": "irregular",
+      "merra_comparison": {
+        "verdict": "no comparable reanalysis field",
+        "applicable": false,
+        "interpretation": "MERRA-2 provides no directly corresponding field for this column, so station-locality cannot be tested by comparison. It is established for temperature by the hour-matched test and inferred for the rest from the shared hourly grid and physically coherent diurnal cycles."
+      },
+      "n_values": 75892
+    }
+  },
+  {
+    "variable": "cumulative_rainfall",
+    "source_column": "TOT-RF (mm)",
+    "physical_meaning": "Cumulative rainfall since the last reset",
+    "unit": "millimetres",
+    "station_or_source": "station-local measurement (inferred from the shared hourly grid and a physically coherent diurnal cycle; no comparable reanalysis field exists for a direct test)",
+    "measurement_timestamp": "row timestamp (hourly grid)",
+    "availability_timestamp": "UNKNOWN",
+    "missing_percentage": 0.0,
+    "valid_range": "[0.000, 17.650]",
+    "quality_flag": "timing unverified",
+    "forecast_usable": false,
+    "notes": "No publication or upload timestamp is present in the CPCB export, so the time at which this value became available to a forecaster cannot be established from the local files. Measurement time is the row timestamp.",
+    "evidence": {
+      "timestamps_on_exact_hour": true,
+      "mean_distinct_values_per_day": 1.68,
+      "diurnal_range": 0.018,
+      "diurnal_cycle_present": false,
+      "looks_like_hourly_measurement": false,
+      "timing_verdict": "irregular",
+      "merra_comparison": {
+        "verdict": "no comparable reanalysis field",
+        "applicable": false,
+        "interpretation": "MERRA-2 provides no directly corresponding field for this column, so station-locality cannot be tested by comparison. It is established for temperature by the hour-matched test and inferred for the rest from the shared hourly grid and physically coherent diurnal cycles."
+      },
+      "n_values": 78912
+    }
+  },
+  {
+    "variable": "solar_radiation",
+    "source_column": "SR (W/mt2)",
+    "physical_meaning": "Solar radiation",
+    "unit": "watts per square metre",
+    "station_or_source": "station-local measurement (inferred from the shared hourly grid and a physically coherent diurnal cycle; no comparable reanalysis field exists for a direct test)",
+    "measurement_timestamp": "row timestamp (hourly grid)",
+    "availability_timestamp": "UNKNOWN",
+    "missing_percentage": 6.815,
+    "valid_range": "[0.000, 961.360]",
+    "quality_flag": "timing unverified",
+    "forecast_usable": false,
+    "notes": "No publication or upload timestamp is present in the CPCB export, so the time at which this value became available to a forecaster cannot be established from the local files. Measurement time is the row timestamp.",
+    "evidence": {
+      "timestamps_on_exact_hour": true,
+      "mean_distinct_values_per_day": 17.79,
+      "diurnal_range": 411.62,
+      "diurnal_cycle_present": true,
+      "looks_like_hourly_measurement": true,
+      "timing_verdict": "hourly measurement",
+      "merra_comparison": {
+        "verdict": "no comparable reanalysis field",
+        "applicable": false,
+        "interpretation": "MERRA-2 provides no directly corresponding field for this column, so station-locality cannot be tested by comparison. It is established for temperature by the hour-matched test and inferred for the rest from the shared hourly grid and physically coherent diurnal cycles."
+      },
+      "n_values": 73534
+    }
+  },
+  {
+    "variable": "barometric_pressure",
+    "source_column": "BP (mmHg)",
+    "physical_meaning": "Barometric pressure",
+    "unit": "millimetres of mercury",
+    "station_or_source": "station-local measurement",
+    "measurement_timestamp": "row timestamp (hourly grid)",
+    "availability_timestamp": "UNKNOWN",
+    "missing_percentage": 22.45,
+    "valid_range": "[700.000, 1062.000]",
+    "quality_flag": "timing unverified",
+    "forecast_usable": false,
+    "notes": "No publication or upload timestamp is present in the CPCB export, so the time at which this value became available to a forecaster cannot be established from the local files. Measurement time is the row timestamp.",
+    "evidence": {
+      "timestamps_on_exact_hour": true,
+      "mean_distinct_values_per_day": 12.54,
+      "diurnal_range": 2.771,
+      "diurnal_cycle_present": true,
+      "looks_like_hourly_measurement": true,
+      "timing_verdict": "hourly measurement",
+      "merra_comparison": {
+        "verdict": "station-local measurement",
+        "applicable": true,
+        "compared_against": "SLP",
+        "n_matched": 516,
+        "correlation_with_merra": -0.2726,
+        "mean_difference": -282.882,
+        "sd_of_difference": 10.991,
+        "n_identical_values": 0,
+        "interpretation": "Values are not identical to reanalysis and differ by a station-scale amount, so the column is a genuine local measurement rather than a reanalysis field."
+      },
+      "n_values": 61196
+    }
+  },
+  {
+    "variable": "vertical_wind_speed",
+    "source_column": "VWS (m/s)",
+    "physical_meaning": "Vertical wind speed",
+    "unit": "metres per second",
+    "station_or_source": "station-local measurement (inferred from the shared hourly grid and a physically coherent diurnal cycle; no comparable reanalysis field exists for a direct test)",
+    "measurement_timestamp": "row timestamp (hourly grid)",
+    "availability_timestamp": "UNKNOWN",
+    "missing_percentage": 43.305,
+    "valid_range": "[-20.000, 4.700]",
+    "quality_flag": "timing unverified",
+    "forecast_usable": false,
+    "notes": "No publication or upload timestamp is present in the CPCB export, so the time at which this value became available to a forecaster cannot be established from the local files. Measurement time is the row timestamp.",
+    "evidence": {
+      "timestamps_on_exact_hour": true,
+      "mean_distinct_values_per_day": 8.61,
+      "diurnal_range": 1.277,
+      "diurnal_cycle_present": true,
+      "looks_like_hourly_measurement": false,
+      "timing_verdict": "irregular",
+      "merra_comparison": {
+        "verdict": "no comparable reanalysis field",
+        "applicable": false,
+        "interpretation": "MERRA-2 provides no directly corresponding field for this column, so station-locality cannot be tested by comparison. It is established for temperature by the hour-matched test and inferred for the rest from the shared hourly grid and physically coherent diurnal cycles."
+      },
+      "n_values": 44739
+    }
+  }
+]

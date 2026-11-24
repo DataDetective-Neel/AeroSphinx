@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "generated_from": "results/experiment_matrix/ (run matrix-20261123) and results/alignment/",
+  "purpose": "The single registry of published numbers. Every value here must be reproducible from the named artefact, and every `readme` token must appear in README.md. `aerosphinx check-claims` enforces both.",
+  "protocol_notes": [
+    "Track A and Track B are separate experiments on separate eligible-date sets and must never be quoted interchangeably.",
+    "The canonical Track A comparison is the M0-M8 matrix (97 folds, 2,615 matched predictions, one eligible set shared by every configuration). scripts/run_track_a.py is a protocol-discovery tool with a narrower eligible set (2,510 predictions, rows requiring a complete 7-day warm-up) and its ridge delta has the opposite sign; it is not the published Track A result.",
+    "The legacy single-window evaluation (33 test days, 2024-05-17 to 2024-06-18) is retained only as the reproducibility baseline for the book chapter and is labelled as such.",
+    "A Track B ablation is reported as a point estimate with a paired block-bootstrap interval and a Holm-adjusted p-value; none of them is significant at n=49.",
+    "Track A's ridge-vs-persistence pair is now part of the ablation family, so it carries the same day-level block bootstrap and the same year-blocked interval as every Track B pair. Day-level resampling excludes zero ([-1.14, -0.17]); year-blocked resampling does not ([-1.20, +0.06]). Both are reported."
+  ],
+  "claims": [
+    {
+      "id": "track_a_persistence_mae",
+      "description": "Track A baseline MAE, M0 persistence, 2,615 matched predictions.",
+      "artifact": "results/experiment_matrix/matrix_metrics.csv",
+      "where": {
+        "track": "A",
+        "config": "M0",
+        "model": "persistence"
+      },
+      "column": "MAE",
+      "value": 22.090113619756167,
+      "tolerance": 1e-06,
+      "readme": "22.09"
+    },
+    {
+      "id": "track_a_ridge_mae",
+      "description": "Track A learned model MAE, M1 ridge on ground history plus calendar.",
+      "artifact": "results/experiment_matrix/matrix_metrics.csv",
+      "where": {
+        "track": "A",
+        "config": "M1",
+        "model": "ridge"
+      },
+      "column": "MAE",
+      "value": 21.44173324547144,
+      "tolerance": 1e-06,
+      "readme": "21.44"
+    },
+    {
+      "id": "track_a_n_predictions",
+      "description": "Matched Track A predictions behind the M0/M1 comparison.",
+      "artifact": "results/experiment_matrix/matrix_metrics.csv",
+      "where": {
+        "track": "A",
+        "config": "M1",
+        "model": "ridge"
+      },
+      "column": "n",
+      "value": 2615,
+      "tolerance": 0,
+      "readme": "2,615"
+    },
+    {
+      "id": "track_a_ridge_delta",
+      "description": "Ridge minus persistence on Track A, 2,615 matched predictions. Day-level interval excludes zero; the year-blocked interval does not.",
+      "artifact": "results/experiment_matrix/matrix_ablations.csv",
+      "where": {
+        "track": "A",
+        "config": "M1",
+        "reference": "M0"
+      },
+      "column": "delta_MAE",
+      "value": -0.6483803742847307,
+      "tolerance": 0.0001,
+      "readme": "-0.65"
+    },
+    {
+      "id": "track_b_persistence_mae",
+      "description": "Track B baseline MAE on the 80-date fused set.",
+      "artifact": "results/experiment_matrix/matrix_metrics.csv",
+      "where": {
+        "track": "B",
+        "config": "M0",
+        "model": "persistence"
+      },
+      "column": "MAE",
+      "value": 22.97931163537549,
+      "tolerance": 1e-06,
+      "readme": "22.98"
+    },
+    {
+      "id": "track_b_ridge_mae",
+      "description": "Track B ground-only ridge MAE: worse than persistence on this date set.",
+      "artifact": "results/experiment_matrix/matrix_metrics.csv",
+      "where": {
+        "track": "B",
+        "config": "M1",
+        "model": "ridge"
+      },
+      "column": "MAE",
+      "value": 28.589943953528223,
+      "tolerance": 1e-06,
+      "readme": "28.59"
+    },
+    {
+      "id": "track_b_ridge_vs_persistence_common",
+      "description": "Ridge minus persistence on the 49 Track B common dates: indistinguishable.",
+      "artifact": "results/experiment_matrix/matrix_ablations.csv",
+      "where": {
+        "track": "B",
+        "config": "M1",
+        "reference": "M0"
+      },
+      "column": "delta_MAE",
+      "value": -0.2473239441485297,
+      "tolerance": 0.0001,
+      "readme": "-0.25"
+    },
+    {
+      "id": "track_b_aod_delta",
+      "description": "Adding INSAT-3D AOD to the ground-only ridge, M2 vs M1, 49 common dates. Not significant.",
+      "artifact": "results/experiment_matrix/matrix_ablations.csv",
+      "where": {
+        "track": "B",
+        "config": "M2",
+        "reference": "M1"
+      },
+      "column": "delta_MAE",
+      "value": 0.2056574777311937,
+      "tolerance": 0.0001,
+      "readme": "0.21"
+    },
+    {
+      "id": "track_b_merra_delta",
+      "description": "Adding MERRA-2 to the ground-only ridge, M3 vs M1, 49 common dates. Not significant after Holm (p = 0.054).",
+      "artifact": "results/experiment_matrix/matrix_ablations.csv",
+      "where": {
+        "track": "B",
+        "config": "M3",
+        "reference": "M1"
+      },
+      "column": "delta_MAE",
+      "value": 4.239472547582292,
+      "tolerance": 0.0001,
+      "readme": "4.24"
+    },
+    {
+      "id": "track_b_fusion_delta",
+      "description": "Full fusion vs the ground-only ridge, M4 vs M1, 49 common dates. Not significant after Holm.",
+      "artifact": "results/experiment_matrix/matrix_ablations.csv",
+      "where": {
+        "track": "B",
+        "config": "M4",
+        "reference": "M1"
+      },
+      "column": "delta_MAE",
+      "value": 4.701906042439486,
+      "tolerance": 0.0001,
+      "readme": "4.70"
+    },
+    {
+      "id": "track_b_common_dates",
+      "description": "Dates on which every Track B configuration predicts; the ablation denominator.",
+      "artifact": "results/experiment_matrix/matrix_ablations.csv",
+      "where": {
+        "track": "B",
+        "config": "M4",
+        "reference": "M1"
+      },
+      "column": "n",
+      "value": 49,
+      "tolerance": 0,
+      "readme": "49 dates"
+    },
+    {
+      "id": "fusion_aod_observed_rows",
+      "description": "Days in the nine-year record with a genuine INSAT-3D AOD observation.",
+      "artifact": "results/alignment/daily_alignment_report.json",
+      "json_path": "coverage.2.observed_rows",
+      "value": 139,
+      "tolerance": 0,
+      "readme": "139"
+    },
+    {
+      "id": "fusion_ground_rows",
+      "description": "Ground rows preserved in the fused frame; missingness is never filled.",
+      "artifact": "results/alignment/daily_alignment_report.json",
+      "json_path": "coverage.0.observed_rows",
+      "value": 2979,
+      "tolerance": 0,
+      "readme": "2,979"
+    }
+  ]
+}

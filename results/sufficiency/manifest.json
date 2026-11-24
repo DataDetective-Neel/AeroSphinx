@@ -1,0 +1,60 @@
+{
+  "run_id": "sufficiency-20261122T084455Z",
+  "generated_utc": "2026-11-22T08:44:55+00:00",
+  "git": {
+    "head_sha": "f080d8fe0fbc4994990022b41d3d865644defa3b",
+    "branch": "main",
+    "dirty": true,
+    "dirty_entries": 24
+  },
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-7.0.12-arch1-1-x86_64-with-glibc2.43",
+    "packages": {
+      "numpy": "2.5.4",
+      "pandas": "3.1.1",
+      "scikit-learn": "1.9.1",
+      "xgboost": "3.4.1",
+      "joblib": "1.6.0",
+      "matplotlib": "3.11.2",
+      "h5py": "3.16.0",
+      "xarray": "2026.9.0",
+      "netCDF4": "1.7.5.1.post1",
+      "scipy": "1.18.1",
+      "PyYAML": "6.0.3"
+    }
+  },
+  "inputs": {
+    "fused_dataset": "data/processed/fused_dataset.csv"
+  },
+  "dataset": {
+    "rows": 2979,
+    "seasons": [
+      "monsoon",
+      "post_monsoon",
+      "pre_monsoon",
+      "winter"
+    ],
+    "sources": [
+      "aod",
+      "merra",
+      "station_met"
+    ]
+  },
+  "rules": {
+    "phase": "5 - data sufficiency",
+    "criteria": {
+      "min_rows_for_inference": 30,
+      "min_rows_for_sufficient": 90,
+      "min_rows_for_inference_rationale": "config/fusion.yaml min_matched_rows_for_inference; below it a paired comparison is not attempted",
+      "min_rows_for_sufficient_rationale": "one full meteorological season (90 days); the smallest span over which a season-specific estimate is not a single-quarter artefact"
+    }
+  },
+  "outputs": {
+    "run_dir": "results/sufficiency",
+    "files": [
+      "season_source_sufficiency.csv",
+      "season_sufficiency_report.json"
+    ]
+  }
+}

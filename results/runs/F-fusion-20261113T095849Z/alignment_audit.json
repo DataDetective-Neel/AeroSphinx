@@ -1,0 +1,173 @@
+{
+  "passed": true,
+  "n_checks": 33,
+  "n_failed": 0,
+  "failed_checks": [],
+  "checks": [
+    {
+      "check": "dates_are_unique",
+      "passed": true,
+      "detail": "0 duplicate dates"
+    },
+    {
+      "check": "dates_are_chronological",
+      "passed": true,
+      "detail": "the fused frame is sorted by date"
+    },
+    {
+      "check": "row_count_matches_ground_series",
+      "passed": true,
+      "detail": "2979 fused rows against 2979 ground rows"
+    },
+    {
+      "check": "ground_calendar_preserved",
+      "passed": true,
+      "detail": "0 extended dates, 0 dropped dates"
+    },
+    {
+      "check": "target_preserved",
+      "passed": true,
+      "detail": "0 target values changed by the fusion"
+    },
+    {
+      "check": "station_met:value_without_observation_flag",
+      "passed": true,
+      "detail": "0 rows carry a value without being flagged observed"
+    },
+    {
+      "check": "station_met:observation_flag_without_value",
+      "passed": true,
+      "detail": "0 rows are flagged observed without a value"
+    },
+    {
+      "check": "station_met:observation_age_is_consistent",
+      "passed": true,
+      "detail": "the observation age is 0 exactly on observed rows and is never used to supply a value"
+    },
+    {
+      "check": "merra:value_without_observation_flag",
+      "passed": true,
+      "detail": "0 rows carry a value without being flagged observed"
+    },
+    {
+      "check": "merra:observation_flag_without_value",
+      "passed": true,
+      "detail": "0 rows are flagged observed without a value"
+    },
+    {
+      "check": "merra:observation_age_is_consistent",
+      "passed": true,
+      "detail": "the observation age is 0 exactly on observed rows and is never used to supply a value"
+    },
+    {
+      "check": "aod:value_without_observation_flag",
+      "passed": true,
+      "detail": "0 rows carry a value without being flagged observed"
+    },
+    {
+      "check": "aod:observation_flag_without_value",
+      "passed": true,
+      "detail": "0 rows are flagged observed without a value"
+    },
+    {
+      "check": "aod:observation_age_is_consistent",
+      "passed": true,
+      "detail": "the observation age is 0 exactly on observed rows and is never used to supply a value"
+    },
+    {
+      "check": "aod:support_counts_are_non_negative_integers",
+      "passed": true,
+      "detail": "pixel and overpass counts are non-negative integers"
+    },
+    {
+      "check": "aod:value_requires_a_valid_pixel",
+      "passed": true,
+      "detail": "every AOD value is supported by at least one valid pixel"
+    },
+    {
+      "check": "station_met:same_day_provenance:AT",
+      "passed": true,
+      "detail": "0 rows differ from the source record on the same date"
+    },
+    {
+      "check": "station_met:same_day_provenance:RH",
+      "passed": true,
+      "detail": "0 rows differ from the source record on the same date"
+    },
+    {
+      "check": "station_met:same_day_provenance:WS",
+      "passed": true,
+      "detail": "0 rows differ from the source record on the same date"
+    },
+    {
+      "check": "station_met:same_day_provenance:WD",
+      "passed": true,
+      "detail": "0 rows differ from the source record on the same date"
+    },
+    {
+      "check": "station_met:same_day_provenance:RF",
+      "passed": true,
+      "detail": "0 rows differ from the source record on the same date"
+    },
+    {
+      "check": "station_met:same_day_provenance:TOT_RF",
+      "passed": true,
+      "detail": "0 rows differ from the source record on the same date"
+    },
+    {
+      "check": "station_met:same_day_provenance:SR",
+      "passed": true,
+      "detail": "0 rows differ from the source record on the same date"
+    },
+    {
+      "check": "station_met:same_day_provenance:VWS",
+      "passed": true,
+      "detail": "0 rows differ from the source record on the same date"
+    },
+    {
+      "check": "merra:same_day_provenance:T2M_midday",
+      "passed": true,
+      "detail": "0 rows differ from the source record on the same date"
+    },
+    {
+      "check": "merra:same_day_provenance:TS_midday",
+      "passed": true,
+      "detail": "0 rows differ from the source record on the same date"
+    },
+    {
+      "check": "merra:same_day_provenance:QV2M_midday",
+      "passed": true,
+      "detail": "0 rows differ from the source record on the same date"
+    },
+    {
+      "check": "merra:same_day_provenance:U10M_midday",
+      "passed": true,
+      "detail": "0 rows differ from the source record on the same date"
+    },
+    {
+      "check": "merra:same_day_provenance:V10M_midday",
+      "passed": true,
+      "detail": "0 rows differ from the source record on the same date"
+    },
+    {
+      "check": "merra:same_day_provenance:SLP_midday",
+      "passed": true,
+      "detail": "0 rows differ from the source record on the same date"
+    },
+    {
+      "check": "aod:same_day_provenance:AOD",
+      "passed": true,
+      "detail": "0 rows differ from the source record on the same date"
+    },
+    {
+      "check": "aod:same_day_provenance:aod_valid_pixels",
+      "passed": true,
+      "detail": "0 source rows differ; 0 absent rows carry non-zero support"
+    },
+    {
+      "check": "aod:same_day_provenance:aod_overpasses",
+      "passed": true,
+      "detail": "0 source rows differ; 0 absent rows carry non-zero support"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+season,source,n_season_rows,n_observed,observed_fraction,first_observed,last_observed,status,reason,target_mean_when_observed
+winter,station_met,742,742,1.0,2016-01-01,2024-12-31,SUFFICIENT,742 observed rows meets the 90-row stability threshold,143.03175525322496
+winter,merra,742,60,0.08086253369272237,2024-01-01,2024-02-29,WARNING,60 observed rows supports a comparison but is below the 90-row stability threshold,124.89528724747474
+winter,aod,742,41,0.05525606469002695,2024-01-07,2024-02-29,WARNING,41 observed rows supports a comparison but is below the 90-row stability threshold,121.3204711751663
+pre_monsoon,station_met,761,761,1.0,2016-03-02,2024-05-31,SUFFICIENT,761 observed rows meets the 90-row stability threshold,77.77648246749877
+pre_monsoon,merra,761,92,0.12089356110381078,2024-03-01,2024-05-31,SUFFICIENT,92 observed rows meets the 90-row stability threshold,99.38354693727038
+pre_monsoon,aod,761,83,0.10906701708278581,2024-03-01,2024-05-31,WARNING,83 observed rows supports a comparison but is below the 90-row stability threshold,100.2893833521551
+monsoon,station_met,997,997,1.0,2016-06-01,2024-09-30,SUFFICIENT,997 observed rows meets the 90-row stability threshold,46.3257592544739
+monsoon,merra,997,20,0.020060180541624874,2024-06-01,2024-06-20,INSUFFICIENT,20 observed rows is below the 30-row inference threshold,87.73133333333331
+monsoon,aod,997,15,0.015045135406218655,2024-06-02,2024-06-18,INSUFFICIENT,15 observed rows is below the 30-row inference threshold,89.64249999999998
+post_monsoon,station_met,479,479,1.0,2016-10-01,2024-11-30,SUFFICIENT,479 observed rows meets the 90-row stability threshold,139.48994950181063
+post_monsoon,merra,479,0,0.0,,,NOT_EVALUABLE,the source is never observed in this season,
+post_monsoon,aod,479,0,0.0,,,NOT_EVALUABLE,the source is never observed in this season,

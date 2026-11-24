@@ -1,0 +1,88 @@
+{
+  "n_granules": 172,
+  "dimension_signatures": {
+    "(('lat', 1), ('lon', 1), ('time', 3))": 172
+  },
+  "variable_presence": {
+    "PS": 172,
+    "QV10M": 172,
+    "QV2M": 172,
+    "SLP": 172,
+    "T10M": 172,
+    "T2M": 172,
+    "T2MDEW": 172,
+    "TQI": 172,
+    "TQL": 172,
+    "TS": 172,
+    "U10M": 172,
+    "U2M": 2,
+    "V10M": 170
+  },
+  "declared_units": {
+    "PS": [
+      "Pa"
+    ],
+    "QV10M": [
+      "kg kg-1"
+    ],
+    "QV2M": [
+      "kg kg-1"
+    ],
+    "SLP": [
+      "Pa"
+    ],
+    "T10M": [
+      "K"
+    ],
+    "T2M": [
+      "K"
+    ],
+    "T2MDEW": [
+      "K"
+    ],
+    "TQI": [
+      "kg m-2"
+    ],
+    "TQL": [
+      "kg m-2"
+    ],
+    "TS": [
+      "K"
+    ],
+    "U10M": [
+      "m s-1"
+    ],
+    "U2M": [
+      "m s-1"
+    ],
+    "V10M": [
+      "m s-1"
+    ]
+  },
+  "unit_mismatches": {},
+  "out_of_range_values": {},
+  "grid_cells": {
+    "(28.5, 77.5)": 172
+  },
+  "time_signatures": {
+    "('11:30', '12:30', '13:30')": 172
+  },
+  "days_per_granule": {
+    "1": 172
+  },
+  "n_missing_values": 0,
+  "date_start": "2024-01-01",
+  "date_end": "2024-06-20",
+  "n_dates": 172,
+  "n_missing_dates": 0,
+  "missing_dates": [],
+  "subsetting_boxes": {
+    "77.2 77.4 28.3 28.5.": 170,
+    "77.2 77.45 28.35 28.55.": 2
+  },
+  "local_hours_ist": [
+    "17:00",
+    "18:00",
+    "19:00"
+  ]
+}

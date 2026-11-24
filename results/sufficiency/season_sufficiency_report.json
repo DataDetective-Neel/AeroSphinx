@@ -1,0 +1,213 @@
+{
+  "rows": 2979,
+  "date_range": [
+    "2016-01-01",
+    "2024-12-31"
+  ],
+  "summary": {
+    "criteria": {
+      "min_rows_for_inference": 30,
+      "min_rows_for_sufficient": 90,
+      "min_rows_for_inference_rationale": "config/fusion.yaml min_matched_rows_for_inference; below it a paired comparison is not attempted",
+      "min_rows_for_sufficient_rationale": "one full meteorological season (90 days); the smallest span over which a season-specific estimate is not a single-quarter artefact"
+    },
+    "counts": {
+      "SUFFICIENT": 5,
+      "WARNING": 3,
+      "INSUFFICIENT": 2,
+      "NOT_EVALUABLE": 2
+    },
+    "by_season": {
+      "winter": {
+        "SUFFICIENT": 1,
+        "WARNING": 2,
+        "INSUFFICIENT": 0,
+        "NOT_EVALUABLE": 0
+      },
+      "pre_monsoon": {
+        "SUFFICIENT": 2,
+        "WARNING": 1,
+        "INSUFFICIENT": 0,
+        "NOT_EVALUABLE": 0
+      },
+      "monsoon": {
+        "SUFFICIENT": 1,
+        "WARNING": 0,
+        "INSUFFICIENT": 2,
+        "NOT_EVALUABLE": 0
+      },
+      "post_monsoon": {
+        "SUFFICIENT": 1,
+        "WARNING": 0,
+        "INSUFFICIENT": 0,
+        "NOT_EVALUABLE": 2
+      }
+    },
+    "not_evaluable": [
+      {
+        "season": "post_monsoon",
+        "source": "merra"
+      },
+      {
+        "season": "post_monsoon",
+        "source": "aod"
+      }
+    ],
+    "insufficient": [
+      {
+        "season": "monsoon",
+        "source": "merra"
+      },
+      {
+        "season": "monsoon",
+        "source": "aod"
+      }
+    ]
+  },
+  "table": [
+    {
+      "season": "winter",
+      "source": "station_met",
+      "n_season_rows": 742,
+      "n_observed": 742,
+      "observed_fraction": 1.0,
+      "first_observed": "2016-01-01",
+      "last_observed": "2024-12-31",
+      "status": "SUFFICIENT",
+      "reason": "742 observed rows meets the 90-row stability threshold",
+      "target_mean_when_observed": 143.03175525322496
+    },
+    {
+      "season": "winter",
+      "source": "merra",
+      "n_season_rows": 742,
+      "n_observed": 60,
+      "observed_fraction": 0.08086253369272237,
+      "first_observed": "2024-01-01",
+      "last_observed": "2024-02-29",
+      "status": "WARNING",
+      "reason": "60 observed rows supports a comparison but is below the 90-row stability threshold",
+      "target_mean_when_observed": 124.89528724747474
+    },
+    {
+      "season": "winter",
+      "source": "aod",
+      "n_season_rows": 742,
+      "n_observed": 41,
+      "observed_fraction": 0.05525606469002695,
+      "first_observed": "2024-01-07",
+      "last_observed": "2024-02-29",
+      "status": "WARNING",
+      "reason": "41 observed rows supports a comparison but is below the 90-row stability threshold",
+      "target_mean_when_observed": 121.3204711751663
+    },
+    {
+      "season": "pre_monsoon",
+      "source": "station_met",
+      "n_season_rows": 761,
+      "n_observed": 761,
+      "observed_fraction": 1.0,
+      "first_observed": "2016-03-02",
+      "last_observed": "2024-05-31",
+      "status": "SUFFICIENT",
+      "reason": "761 observed rows meets the 90-row stability threshold",
+      "target_mean_when_observed": 77.77648246749877
+    },
+    {
+      "season": "pre_monsoon",
+      "source": "merra",
+      "n_season_rows": 761,
+      "n_observed": 92,
+      "observed_fraction": 0.12089356110381078,
+      "first_observed": "2024-03-01",
+      "last_observed": "2024-05-31",
+      "status": "SUFFICIENT",
+      "reason": "92 observed rows meets the 90-row stability threshold",
+      "target_mean_when_observed": 99.38354693727038
+    },
+    {
+      "season": "pre_monsoon",
+      "source": "aod",
+      "n_season_rows": 761,
+      "n_observed": 83,
+      "observed_fraction": 0.10906701708278581,
+      "first_observed": "2024-03-01",
+      "last_observed": "2024-05-31",
+      "status": "WARNING",
+      "reason": "83 observed rows supports a comparison but is below the 90-row stability threshold",
+      "target_mean_when_observed": 100.2893833521551
+    },
+    {
+      "season": "monsoon",
+      "source": "station_met",
+      "n_season_rows": 997,
+      "n_observed": 997,
+      "observed_fraction": 1.0,
+      "first_observed": "2016-06-01",
+      "last_observed": "2024-09-30",
+      "status": "SUFFICIENT",
+      "reason": "997 observed rows meets the 90-row stability threshold",
+      "target_mean_when_observed": 46.3257592544739
+    },
+    {
+      "season": "monsoon",
+      "source": "merra",
+      "n_season_rows": 997,
+      "n_observed": 20,
+      "observed_fraction": 0.020060180541624874,
+      "first_observed": "2024-06-01",
+      "last_observed": "2024-06-20",
+      "status": "INSUFFICIENT",
+      "reason": "20 observed rows is below the 30-row inference threshold",
+      "target_mean_when_observed": 87.73133333333331
+    },
+    {
+      "season": "monsoon",
+      "source": "aod",
+      "n_season_rows": 997,
+      "n_observed": 15,
+      "observed_fraction": 0.015045135406218655,
+      "first_observed": "2024-06-02",
+      "last_observed": "2024-06-18",
+      "status": "INSUFFICIENT",
+      "reason": "15 observed rows is below the 30-row inference threshold",
+      "target_mean_when_observed": 89.64249999999998
+    },
+    {
+      "season": "post_monsoon",
+      "source": "station_met",
+      "n_season_rows": 479,
+      "n_observed": 479,
+      "observed_fraction": 1.0,
+      "first_observed": "2016-10-01",
+      "last_observed": "2024-11-30",
+      "status": "SUFFICIENT",
+      "reason": "479 observed rows meets the 90-row stability threshold",
+      "target_mean_when_observed": 139.48994950181063
+    },
+    {
+      "season": "post_monsoon",
+      "source": "merra",
+      "n_season_rows": 479,
+      "n_observed": 0,
+      "observed_fraction": 0.0,
+      "first_observed": NaN,
+      "last_observed": NaN,
+      "status": "NOT_EVALUABLE",
+      "reason": "the source is never observed in this season",
+      "target_mean_when_observed": NaN
+    },
+    {
+      "season": "post_monsoon",
+      "source": "aod",
+      "n_season_rows": 479,
+      "n_observed": 0,
+      "observed_fraction": 0.0,
+      "first_observed": NaN,
+      "last_observed": NaN,
+      "status": "NOT_EVALUABLE",
+      "reason": "the source is never observed in this season",
+      "target_mean_when_observed": NaN
+    }
+  ]
+}

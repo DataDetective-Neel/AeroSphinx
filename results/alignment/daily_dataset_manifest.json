@@ -1,0 +1,61 @@
+{
+  "run_id": "alignment-20261122T084454Z",
+  "generated_utc": "2026-11-22T08:44:54+00:00",
+  "git": {
+    "head_sha": "f080d8fe0fbc4994990022b41d3d865644defa3b",
+    "branch": "main",
+    "dirty": true,
+    "dirty_entries": 23
+  },
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-7.0.12-arch1-1-x86_64-with-glibc2.43",
+    "packages": {
+      "numpy": "2.5.4",
+      "pandas": "3.1.1",
+      "scikit-learn": "1.9.1",
+      "xgboost": "3.4.1",
+      "joblib": "1.6.0",
+      "matplotlib": "3.11.2",
+      "h5py": "3.16.0",
+      "xarray": "2026.9.0",
+      "netCDF4": "1.7.5.1.post1",
+      "scipy": "1.18.1",
+      "PyYAML": "6.0.3"
+    }
+  },
+  "inputs": {
+    "fused_dataset": "data/processed/fused_dataset.csv"
+  },
+  "dataset": {
+    "rows": 2979,
+    "date_range": [
+      "2016-01-01",
+      "2024-12-31"
+    ],
+    "per_source_observed_rows": {
+      "station_met": 2979,
+      "merra": 172,
+      "aod": 139
+    },
+    "rows_with_all_sources_observed": 139,
+    "rows_with_no_source_observed": 0
+  },
+  "rules": {
+    "phase": "1 - daily multisource alignment",
+    "sources": [
+      "station_met",
+      "merra",
+      "aod"
+    ],
+    "missing_value_policy": "no fill, interpolation or imputation; flags are read as given"
+  },
+  "outputs": {
+    "run_dir": "results/alignment",
+    "files": [
+      "daily_alignment_report.json",
+      "daily_source_coverage.csv",
+      "daily_source_missingness.csv"
+    ]
+  }
+}

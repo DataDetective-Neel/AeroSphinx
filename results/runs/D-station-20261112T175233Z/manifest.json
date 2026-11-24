@@ -1,0 +1,70 @@
+{
+  "run_id": "D-station-20261112T175233Z",
+  "generated_utc": "2026-11-12T17:52:33+00:00",
+  "git": {
+    "head_sha": "ac28be4299ea2c9e17ddf7a7e40b95ee80c5622e",
+    "branch": "main",
+    "dirty": true,
+    "dirty_entries": 3
+  },
+  "environment": {
+    "python": "3.14.6",
+    "platform": "Linux-7.0.12-arch1-1-x86_64-with-glibc2.43",
+    "packages": {
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "scikit-learn": "1.9.1",
+      "xgboost": "3.4.1",
+      "joblib": "1.6.0",
+      "matplotlib": "3.11.2",
+      "h5py": "3.16.0",
+      "xarray": "2026.9.0",
+      "netCDF4": "1.7.5.1.post1",
+      "scipy": "1.18.1",
+      "PyYAML": "6.0.3"
+    }
+  },
+  "inputs": {
+    "cpcb_dir": "data/cpcb",
+    "merra_dir": "data/merra2"
+  },
+  "dataset": {
+    "n_variables_audited": 9,
+    "n_forecast_usable": 0,
+    "forecast_usable_variables": [],
+    "variables_blocked_by_unknown_availability": [
+      "air_temperature",
+      "relative_humidity",
+      "wind_speed",
+      "wind_direction",
+      "rainfall",
+      "cumulative_rainfall",
+      "solar_radiation",
+      "barometric_pressure",
+      "vertical_wind_speed"
+    ]
+  },
+  "rules": {
+    "workstream": "D - CPCB station-local meteorology audit",
+    "audit_fields": [
+      "variable",
+      "source_column",
+      "physical_meaning",
+      "unit",
+      "station_or_source",
+      "measurement_timestamp",
+      "availability_timestamp",
+      "missing_percentage",
+      "valid_range",
+      "quality_flag",
+      "forecast_usable"
+    ]
+  },
+  "outputs": {
+    "run_dir": "results/runs/D-station-20261112T175233Z",
+    "files": [
+      "station_variable_audit.csv",
+      "station_variable_audit.json"
+    ]
+  }
+}

@@ -1,0 +1,4 @@
+source,n_observed,n_unobserved,target_mean_when_observed,target_mean_when_unobserved,target_mean_difference
+station_met,2979,0,93.4273022301904,,
+merra,172,2807,106.92808267293037,92.6000367381522,14.328045934778174
+aod,139,2840,105.34385349935748,92.8440625730023,12.499790926355175

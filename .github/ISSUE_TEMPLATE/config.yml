@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: The live dashboard
+    url: https://aerosphinx.onrender.com
+    about: Every figure in the documentation is reproducible from the artefacts this serves.
