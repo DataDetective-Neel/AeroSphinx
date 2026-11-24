@@ -1,0 +1,186 @@
+{
+  "library_versions": {
+    "numpy": "2.4.0",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.8.0",
+    "xgboost": "3.2.0"
+  },
+  "split": {
+    "strategy": "chronological_holdout_most_recent_window",
+    "train_start": "2024-01-07",
+    "train_end": "2024-05-16",
+    "test_start": "2024-05-17",
+    "test_end": "2024-06-18",
+    "n_train": 130,
+    "n_test": 33
+  },
+  "features": [
+    "AOD",
+    "T2M",
+    "TS",
+    "QV2M",
+    "U10M",
+    "V10M",
+    "SLP",
+    "Temp_Diff",
+    "Humidity_Ratio",
+    "PM25_Lag_1",
+    "PM25_Lag_2",
+    "PM25_Lag_3",
+    "day_sin",
+    "day_cos",
+    "month_sin",
+    "month_cos",
+    "PM25_Roll3",
+    "PM25_Roll7"
+  ],
+  "configuration": {
+    "target_transform": "log1p",
+    "recency_halflife": null,
+    "persistence_anchor": 0.4,
+    "extra_features": [
+      "PM25_Roll3",
+      "PM25_Roll7"
+    ],
+    "description": "Validation-selected configuration: log1p target, 0.4 persistence anchor, three- and seven-day rolling-mean features."
+  },
+  "mlp_parameters": {
+    "solver": "lbfgs",
+    "alpha": 2.0,
+    "max_iter": 2000,
+    "random_state": 42
+  },
+  "validation": {
+    "start": "2024-04-10",
+    "end": "2024-05-16",
+    "n_development": 93,
+    "n_validation": 37,
+    "selection_metric": "MAE",
+    "candidates": [
+      {
+        "hidden_layers": [
+          16,
+          12,
+          8
+        ],
+        "MAE": 22.000041807499247,
+        "RMSE": 33.27395889067041,
+        "R2": 0.21246083104614255,
+        "AQI_Accuracy": 0.5135135135135135,
+        "Mean_Bias": -7.454560997381129,
+        "Observed_SD": 37.49457145660753
+      },
+      {
+        "hidden_layers": [
+          16,
+          12,
+          8,
+          6
+        ],
+        "MAE": 22.055659212526482,
+        "RMSE": 32.98895402353333,
+        "R2": 0.2258942330591478,
+        "AQI_Accuracy": 0.5405405405405406,
+        "Mean_Bias": -7.041078156793726,
+        "Observed_SD": 37.49457145660753
+      },
+      {
+        "hidden_layers": [
+          16,
+          12,
+          8,
+          6,
+          4
+        ],
+        "MAE": 22.362178912974986,
+        "RMSE": 33.379850332238554,
+        "R2": 0.2074403070592301,
+        "AQI_Accuracy": 0.5135135135135135,
+        "Mean_Bias": -8.527095276351446,
+        "Observed_SD": 37.49457145660753
+      }
+    ],
+    "selected_hidden_layers": [
+      16,
+      12,
+      8
+    ]
+  },
+  "daily_test": {
+    "RF_XGB_Ensemble": {
+      "MAE": 17.526964675054217,
+      "RMSE": 23.137794202099204,
+      "R2": -0.003277246297872294,
+      "AQI_Accuracy": 0.5757575757575758,
+      "Mean_Bias": 5.918002238477789,
+      "Observed_SD": 23.09997301357012
+    },
+    "Selected_MLP": {
+      "MAE": 23.295748304018353,
+      "RMSE": 28.27734166874645,
+      "R2": -0.4984912579008347,
+      "AQI_Accuracy": 0.5151515151515151,
+      "Mean_Bias": 16.61966949237813,
+      "Observed_SD": 23.09997301357012
+    },
+    "Persistence": {
+      "MAE": 19.91849747474747,
+      "RMSE": 24.186053295353535,
+      "R2": -0.09624358758616958,
+      "AQI_Accuracy": 0.42424242424242425,
+      "Mean_Bias": 0.0027398989898995123,
+      "Observed_SD": 23.09997301357012
+    }
+  },
+  "recursive_test": {
+    "origins": 29,
+    "predictions": 145,
+    "metrics": {
+      "RF_XGB_Ensemble": {
+        "MAE": 21.91715351209698,
+        "RMSE": 28.923602316723724,
+        "R2": -0.502508777543583,
+        "AQI_Accuracy": 0.5103448275862069,
+        "Mean_Bias": 10.60310416988451,
+        "Observed_SD": 23.596298022754535,
+        "MAE_by_horizon": {
+          "1": 18.359876247465817,
+          "2": 20.521526939090176,
+          "3": 23.447182391389962,
+          "4": 23.63712995948557,
+          "5": 23.6200520230534
+        }
+      },
+      "Selected_MLP": {
+        "MAE": 37.21372751686493,
+        "RMSE": 41.9698682310898,
+        "R2": -2.1636429722731325,
+        "AQI_Accuracy": 0.21379310344827587,
+        "Mean_Bias": 29.89018206279873,
+        "Observed_SD": 23.596298022754535,
+        "MAE_by_horizon": {
+          "1": 23.27195059945918,
+          "2": 33.241875444583776,
+          "3": 40.30032615547411,
+          "4": 43.673094870369624,
+          "5": 45.58139051443795
+        }
+      },
+      "Persistence": {
+        "MAE": 24.589459770114935,
+        "RMSE": 32.34341843624822,
+        "R2": -0.8788153225437791,
+        "AQI_Accuracy": 0.3931034482758621,
+        "Mean_Bias": 2.3797758620689673,
+        "Observed_SD": 23.596298022754535,
+        "MAE_by_horizon": {
+          "1": 20.686336206896545,
+          "2": 23.13231321839081,
+          "3": 26.518146551724133,
+          "4": 25.92412356321838,
+          "5": 26.686379310344822
+        }
+      }
+    }
+  }
+}

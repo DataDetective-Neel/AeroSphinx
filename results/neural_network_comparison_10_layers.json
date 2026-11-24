@@ -1,0 +1,171 @@
+{
+  "library_versions": {
+    "numpy": "2.4.0",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.8.0",
+    "xgboost": "3.2.0"
+  },
+  "split": {
+    "strategy": "chronological_holdout_most_recent_window",
+    "train_start": "2024-01-07",
+    "train_end": "2024-05-16",
+    "test_start": "2024-05-17",
+    "test_end": "2024-06-18",
+    "n_train": 130,
+    "n_test": 33
+  },
+  "features": [
+    "AOD",
+    "T2M",
+    "TS",
+    "QV2M",
+    "U10M",
+    "V10M",
+    "SLP",
+    "Temp_Diff",
+    "Humidity_Ratio",
+    "PM25_Lag_1",
+    "PM25_Lag_2",
+    "PM25_Lag_3",
+    "day_sin",
+    "day_cos",
+    "month_sin",
+    "month_cos",
+    "PM25_Roll3",
+    "PM25_Roll7"
+  ],
+  "configuration": {
+    "target_transform": "log1p",
+    "recency_halflife": null,
+    "persistence_anchor": 0.4,
+    "extra_features": [
+      "PM25_Roll3",
+      "PM25_Roll7"
+    ],
+    "description": "Validation-selected configuration: log1p target, 0.4 persistence anchor, three- and seven-day rolling-mean features."
+  },
+  "mlp_parameters": {
+    "solver": "lbfgs",
+    "alpha": 2.0,
+    "max_iter": 2000,
+    "random_state": 42
+  },
+  "validation": {
+    "start": "2024-04-10",
+    "end": "2024-05-16",
+    "n_development": 93,
+    "n_validation": 37,
+    "selection_metric": "MAE",
+    "candidates": [
+      {
+        "hidden_layers": [
+          16,
+          12,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8
+        ],
+        "MAE": 22.65731765024904,
+        "RMSE": 33.848361792970806,
+        "R2": 0.18503582067028734,
+        "AQI_Accuracy": 0.5405405405405406,
+        "Mean_Bias": -6.8571657135058155,
+        "Observed_SD": 37.49457145660753
+      }
+    ],
+    "selected_hidden_layers": [
+      16,
+      12,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8,
+      8
+    ]
+  },
+  "daily_test": {
+    "RF_XGB_Ensemble": {
+      "MAE": 17.5269646750542,
+      "RMSE": 23.137794202099183,
+      "R2": -0.0032772462978707395,
+      "AQI_Accuracy": 0.5757575757575758,
+      "Mean_Bias": 5.918002238477787,
+      "Observed_SD": 23.09997301357012
+    },
+    "Selected_MLP": {
+      "MAE": 16.237817227699736,
+      "RMSE": 20.648735247874594,
+      "R2": 0.20096837850239524,
+      "AQI_Accuracy": 0.5757575757575758,
+      "Mean_Bias": -0.525634106858678,
+      "Observed_SD": 23.09997301357012
+    },
+    "Persistence": {
+      "MAE": 19.91849747474747,
+      "RMSE": 24.186053295353535,
+      "R2": -0.09624358758616958,
+      "AQI_Accuracy": 0.42424242424242425,
+      "Mean_Bias": 0.0027398989898995123,
+      "Observed_SD": 23.09997301357012
+    }
+  },
+  "recursive_test": {
+    "origins": 29,
+    "predictions": 145,
+    "metrics": {
+      "RF_XGB_Ensemble": {
+        "MAE": 21.91715351209698,
+        "RMSE": 28.923602316723724,
+        "R2": -0.502508777543583,
+        "AQI_Accuracy": 0.5103448275862069,
+        "Mean_Bias": 10.603104169884512,
+        "Observed_SD": 23.596298022754535,
+        "MAE_by_horizon": {
+          "1": 18.359876247465806,
+          "2": 20.52152693909018,
+          "3": 23.447182391389966,
+          "4": 23.63712995948557,
+          "5": 23.620052023053393
+        }
+      },
+      "Selected_MLP": {
+        "MAE": 17.253841086574578,
+        "RMSE": 23.03953701971387,
+        "R2": 0.04663380159444219,
+        "AQI_Accuracy": 0.5655172413793104,
+        "Mean_Bias": -0.15186610794815053,
+        "Observed_SD": 23.596298022754535,
+        "MAE_by_horizon": {
+          "1": 17.074475925773264,
+          "2": 17.526487430438657,
+          "3": 17.055641200142887,
+          "4": 17.380076763673657,
+          "5": 17.232524112844423
+        }
+      },
+      "Persistence": {
+        "MAE": 24.589459770114935,
+        "RMSE": 32.34341843624822,
+        "R2": -0.8788153225437791,
+        "AQI_Accuracy": 0.3931034482758621,
+        "Mean_Bias": 2.3797758620689673,
+        "Observed_SD": 23.596298022754535,
+        "MAE_by_horizon": {
+          "1": 20.686336206896545,
+          "2": 23.13231321839081,
+          "3": 26.518146551724133,
+          "4": 25.92412356321838,
+          "5": 26.686379310344822
+        }
+      }
+    }
+  }
+}
