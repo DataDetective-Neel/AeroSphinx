@@ -1,0 +1,102 @@
+{
+  "run_id": "A-roll20261112T142317Z",
+  "generated_utc": "2026-11-12T14:24:09+00:00",
+  "git": {
+    "head_sha": "63b3a52f85ce85afe675227ce1f9db093a2f6b6f",
+    "branch": "main",
+    "dirty": true,
+    "dirty_entries": 8
+  },
+  "environment": {
+    "python": "3.14.6",
+    "platform": "Linux-7.0.12-arch1-1-x86_64-with-glibc2.43",
+    "packages": {
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "scikit-learn": "1.9.1",
+      "xgboost": "3.4.1",
+      "joblib": "1.6.0",
+      "matplotlib": "3.11.2",
+      "h5py": "3.16.0",
+      "xarray": "2026.9.0",
+      "netCDF4": "1.7.5.1.post1",
+      "scipy": "1.18.1",
+      "PyYAML": "6.0.3"
+    }
+  },
+  "inputs": {
+    "features_csv": "data/processed/track_a_features.csv",
+    "features_sha256": "6fd9e35e141e92ce8d9dd83342a7463a82ddc38098b69ad7ec97fbcc7e4bc18d"
+  },
+  "dataset": {
+    "rows": 2979,
+    "date_range": [
+      "2017-01-31",
+      "2024-12-18"
+    ],
+    "rows_evaluated": 2150,
+    "n_folds": 96
+  },
+  "rules": {
+    "evaluation": {
+      "strategy": "rolling_origin",
+      "min_train_days": 365,
+      "min_validation_days": 30,
+      "test_block_days": 30,
+      "step_days": 30,
+      "report_paired_tests": true,
+      "report_bootstrap_ci": true,
+      "bootstrap_samples": 10000,
+      "alpha": 0.05
+    },
+    "features": {
+      "calendar_aware_lags": true,
+      "pm25_lags": [
+        1,
+        2,
+        3,
+        7
+      ],
+      "rolling_windows": [
+        3,
+        7
+      ],
+      "rolling_min_periods": 1,
+      "cyclic_day_of_week": true,
+      "cyclic_month": true,
+      "use_station_meteorology": false,
+      "station_meteorology_columns": [
+        "AT (\u00b0C)",
+        "RH (%)",
+        "WS (m/s)",
+        "WD (deg)",
+        "RF (mm)",
+        "SR (W/mt2)",
+        "BP (mmHg)",
+        "VWS (m/s)"
+      ]
+    },
+    "models": [
+      "ridge",
+      "random_forest",
+      "xgboost"
+    ],
+    "baseline": "persistence",
+    "climatology_lookback_years": 3
+  },
+  "outputs": {
+    "run_dir": "results/runs/A-roll20261112T142317Z",
+    "files": [
+      "by_season.csv",
+      "by_year.csv",
+      "cold_start.csv",
+      "comparisons.csv",
+      "fold_complete_metrics.csv",
+      "fold_metrics.csv",
+      "fold_summary.csv",
+      "metrics.json",
+      "predictions.csv",
+      "regime_coverage.csv"
+    ]
+  }
+}

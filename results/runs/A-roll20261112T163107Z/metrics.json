@@ -1,0 +1,538 @@
+{
+  "run_id": "A-roll20261112T163258Z",
+  "metadata": {
+    "n_folds": 96,
+    "n_rows_total": 2682,
+    "n_rows_evaluated": 2510,
+    "n_rows_excluded_missing_baseline": 172,
+    "features": [
+      "PM25_Lag_1",
+      "PM25_Lag_2",
+      "PM25_Lag_3",
+      "PM25_Lag_7",
+      "PM25_Roll3",
+      "PM25_Roll7",
+      "day_sin",
+      "day_cos",
+      "month_sin",
+      "month_cos"
+    ],
+    "models": [
+      "ridge",
+      "random_forest",
+      "xgboost"
+    ],
+    "baseline": "persistence",
+    "climatology_lookback_years": 3,
+    "select_climatology_lookback": true,
+    "persistence_max_age_days": null,
+    "min_train_days": 365,
+    "validation_days": 30,
+    "test_block_days": 30,
+    "step_days": 30,
+    "bootstrap_samples": 10000,
+    "alpha": 0.05,
+    "seed": 42,
+    "date_range": [
+      "2017-01-31",
+      "2024-12-18"
+    ],
+    "n_folds_extrapolating": 8
+  },
+  "aggregate": [
+    {
+      "model": "persistence",
+      "n": 2510,
+      "MAE": 21.83082303657942,
+      "RMSE": 33.10571649769645,
+      "R2": 0.7156027603001133,
+      "Mean_Bias": -0.02766642640761945,
+      "Observed_SD": 62.07836972938424,
+      "Observed_Mean": 91.29618589146916,
+      "AQI_Accuracy": 0.5749003984063745,
+      "AQI_Macro_F1": 0.5533574837916948,
+      "AQI_ConfusionMatrix": [
+        [
+          161,
+          91,
+          10,
+          0,
+          1,
+          0
+        ],
+        [
+          102,
+          457,
+          118,
+          17,
+          4,
+          1
+        ],
+        [
+          6,
+          126,
+          266,
+          101,
+          43,
+          1
+        ],
+        [
+          0,
+          15,
+          123,
+          140,
+          90,
+          2
+        ],
+        [
+          0,
+          2,
+          26,
+          117,
+          380,
+          33
+        ],
+        [
+          1,
+          0,
+          0,
+          1,
+          36,
+          39
+        ]
+      ],
+      "AQI_Labels": [
+        "Good",
+        "Satisfactory",
+        "Moderate",
+        "Poor",
+        "Very Poor",
+        "Severe"
+      ],
+      "n_undefined": 0
+    },
+    {
+      "model": "seasonal_naive",
+      "n": 2510,
+      "MAE": 38.012126586505836,
+      "RMSE": 52.57692033376914,
+      "R2": 0.2826853816707887,
+      "Mean_Bias": 6.928821644443002,
+      "Observed_SD": 62.07836972938424,
+      "Observed_Mean": 91.29618589146916,
+      "AQI_Accuracy": 0.3884462151394422,
+      "AQI_Macro_F1": 0.30509521324472716,
+      "AQI_ConfusionMatrix": [
+        [
+          17,
+          176,
+          51,
+          13,
+          6,
+          0
+        ],
+        [
+          38,
+          364,
+          193,
+          62,
+          42,
+          0
+        ],
+        [
+          12,
+          142,
+          177,
+          108,
+          102,
+          2
+        ],
+        [
+          5,
+          51,
+          112,
+          80,
+          113,
+          9
+        ],
+        [
+          8,
+          27,
+          68,
+          81,
+          325,
+          49
+        ],
+        [
+          0,
+          0,
+          1,
+          7,
+          57,
+          12
+        ]
+      ],
+      "AQI_Labels": [
+        "Good",
+        "Satisfactory",
+        "Moderate",
+        "Poor",
+        "Very Poor",
+        "Severe"
+      ],
+      "n_undefined": 0
+    },
+    {
+      "model": "ridge",
+      "n": 2510,
+      "MAE": 22.175447747489084,
+      "RMSE": 32.4299145835757,
+      "R2": 0.7270953075252853,
+      "Mean_Bias": 0.42137011118091783,
+      "Observed_SD": 62.07836972938424,
+      "Observed_Mean": 91.29618589146916,
+      "AQI_Accuracy": 0.5430278884462152,
+      "AQI_Macro_F1": 0.45535829186990595,
+      "AQI_ConfusionMatrix": [
+        [
+          60,
+          191,
+          8,
+          3,
+          1,
+          0
+        ],
+        [
+          27,
+          488,
+          154,
+          27,
+          3,
+          0
+        ],
+        [
+          2,
+          116,
+          256,
+          122,
+          47,
+          0
+        ],
+        [
+          0,
+          10,
+          124,
+          135,
+          100,
+          1
+        ],
+        [
+          0,
+          2,
+          27,
+          104,
+          412,
+          13
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          64,
+          12
+        ]
+      ],
+      "AQI_Labels": [
+        "Good",
+        "Satisfactory",
+        "Moderate",
+        "Poor",
+        "Very Poor",
+        "Severe"
+      ],
+      "n_undefined": 0
+    },
+    {
+      "model": "random_forest",
+      "n": 2510,
+      "MAE": 22.985431052492256,
+      "RMSE": 33.686638983543304,
+      "R2": 0.7055342703667522,
+      "Mean_Bias": 3.0301255800590168,
+      "Observed_SD": 62.07836972938424,
+      "Observed_Mean": 91.29618589146916,
+      "AQI_Accuracy": 0.5517928286852589,
+      "AQI_Macro_F1": 0.48953197913405117,
+      "AQI_ConfusionMatrix": [
+        [
+          70,
+          151,
+          18,
+          5,
+          19,
+          0
+        ],
+        [
+          39,
+          457,
+          172,
+          26,
+          5,
+          0
+        ],
+        [
+          2,
+          90,
+          272,
+          135,
+          44,
+          0
+        ],
+        [
+          0,
+          7,
+          110,
+          149,
+          103,
+          1
+        ],
+        [
+          0,
+          2,
+          26,
+          97,
+          416,
+          17
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          55,
+          21
+        ]
+      ],
+      "AQI_Labels": [
+        "Good",
+        "Satisfactory",
+        "Moderate",
+        "Poor",
+        "Very Poor",
+        "Severe"
+      ],
+      "n_undefined": 0
+    },
+    {
+      "model": "xgboost",
+      "n": 2510,
+      "MAE": 24.518894865302734,
+      "RMSE": 36.625616465876526,
+      "R2": 0.6519118168315396,
+      "Mean_Bias": 3.5968841235452436,
+      "Observed_SD": 62.07836972938424,
+      "Observed_Mean": 91.29618589146916,
+      "AQI_Accuracy": 0.5366533864541833,
+      "AQI_Macro_F1": 0.4784550235510832,
+      "AQI_ConfusionMatrix": [
+        [
+          66,
+          147,
+          23,
+          5,
+          22,
+          0
+        ],
+        [
+          43,
+          442,
+          169,
+          39,
+          6,
+          0
+        ],
+        [
+          1,
+          100,
+          274,
+          125,
+          43,
+          0
+        ],
+        [
+          0,
+          9,
+          118,
+          143,
+          99,
+          1
+        ],
+        [
+          0,
+          2,
+          31,
+          107,
+          400,
+          18
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          54,
+          22
+        ]
+      ],
+      "AQI_Labels": [
+        "Good",
+        "Satisfactory",
+        "Moderate",
+        "Poor",
+        "Very Poor",
+        "Severe"
+      ],
+      "n_undefined": 0
+    }
+  ],
+  "fold_summary": [
+    {
+      "model": "persistence",
+      "n_folds": 96,
+      "MAE_mean": 21.766925680361386,
+      "MAE_sd": 12.214770324242306,
+      "MAE_min": 4.31898365969638,
+      "MAE_max": 54.047149911100796,
+      "MAE_worst_fold_ratio": 2.482994185984811,
+      "R2_mean": -0.0504384521442898,
+      "R2_min": -4.730315007029134,
+      "folds_with_negative_R2": 39
+    },
+    {
+      "model": "ridge",
+      "n_folds": 96,
+      "MAE_mean": 22.333068115905025,
+      "MAE_sd": 12.114611547770052,
+      "MAE_min": 6.397439675882449,
+      "MAE_max": 53.99110889097066,
+      "MAE_worst_fold_ratio": 2.4175410476861265,
+      "R2_mean": -0.11471499715458262,
+      "R2_min": -5.72029610053486,
+      "folds_with_negative_R2": 39
+    },
+    {
+      "model": "random_forest",
+      "n_folds": 96,
+      "MAE_mean": 23.437316264505892,
+      "MAE_sd": 13.310462957372579,
+      "MAE_min": 6.110120323005264,
+      "MAE_max": 76.4537772933818,
+      "MAE_worst_fold_ratio": 3.2620534036640314,
+      "R2_mean": -3.289891610546043,
+      "R2_min": -186.0524106888422,
+      "folds_with_negative_R2": 39
+    },
+    {
+      "model": "xgboost",
+      "n_folds": 96,
+      "MAE_mean": 25.233567191598713,
+      "MAE_sd": 16.935401176023387,
+      "MAE_min": 5.713286312084479,
+      "MAE_max": 118.04765484129845,
+      "MAE_worst_fold_ratio": 4.678199239329164,
+      "R2_mean": -7.504526527145046,
+      "R2_min": -437.57346064917897,
+      "folds_with_negative_R2": 43
+    },
+    {
+      "model": "seasonal_naive",
+      "n_folds": 96,
+      "MAE_mean": 38.17003711872533,
+      "MAE_sd": 20.34791905504463,
+      "MAE_min": 9.838785667534959,
+      "MAE_max": 84.40908258618047,
+      "MAE_worst_fold_ratio": 2.2113963977460043,
+      "R2_mean": -3.0394204186866265,
+      "R2_min": -32.08259450443165,
+      "folds_with_negative_R2": 88
+    }
+  ],
+  "comparisons": [
+    {
+      "model": "persistence",
+      "baseline": "persistence",
+      "n_pairs": 2510,
+      "mae_model": 21.83082303657942,
+      "mae_baseline": 21.83082303657942,
+      "delta_mae": 0.0,
+      "wilcoxon_statistic": 0.0,
+      "wilcoxon_pvalue": 1.0,
+      "bootstrap_ci_low": 0.0,
+      "bootstrap_ci_high": 0.0,
+      "p_better_than_baseline": 0.0,
+      "significant": false,
+      "verdict": "reference"
+    },
+    {
+      "model": "seasonal_naive",
+      "baseline": "persistence",
+      "n_pairs": 2510,
+      "mae_model": 38.012126586505836,
+      "mae_baseline": 21.83082303657942,
+      "delta_mae": 16.181303549926415,
+      "wilcoxon_statistic": 787598.0,
+      "wilcoxon_pvalue": 1.9498717152726064e-104,
+      "bootstrap_ci_low": 14.731780352389057,
+      "bootstrap_ci_high": 17.66678566448372,
+      "p_better_than_baseline": 0.0,
+      "significant": true,
+      "verdict": "worse than baseline (significant)"
+    },
+    {
+      "model": "ridge",
+      "baseline": "persistence",
+      "n_pairs": 2510,
+      "mae_model": 22.175447747489084,
+      "mae_baseline": 21.83082303657942,
+      "delta_mae": 0.3446247109096632,
+      "wilcoxon_statistic": 1520360.0,
+      "wilcoxon_pvalue": 0.127831871920963,
+      "bootstrap_ci_low": -0.3019513606403912,
+      "bootstrap_ci_high": 0.9732960566663533,
+      "p_better_than_baseline": 0.1473,
+      "significant": false,
+      "verdict": "no significant difference"
+    },
+    {
+      "model": "random_forest",
+      "baseline": "persistence",
+      "n_pairs": 2510,
+      "mae_model": 22.985431052492256,
+      "mae_baseline": 21.83082303657942,
+      "delta_mae": 1.1546080159128351,
+      "wilcoxon_statistic": 1497646.0,
+      "wilcoxon_pvalue": 0.03169536752334768,
+      "bootstrap_ci_low": 0.46395721464093315,
+      "bootstrap_ci_high": 1.8292090676575352,
+      "p_better_than_baseline": 0.0001,
+      "significant": true,
+      "verdict": "worse than baseline (significant)"
+    },
+    {
+      "model": "xgboost",
+      "baseline": "persistence",
+      "n_pairs": 2510,
+      "mae_model": 24.518894865302734,
+      "mae_baseline": 21.83082303657942,
+      "delta_mae": 2.688071828723313,
+      "wilcoxon_statistic": 1414081.0,
+      "wilcoxon_pvalue": 8.60546704283841e-06,
+      "bootstrap_ci_low": 1.824446309252201,
+      "bootstrap_ci_high": 3.5609391707146663,
+      "p_better_than_baseline": 0.0,
+      "significant": true,
+      "verdict": "worse than baseline (significant)"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+group_set,sources,n_rows_total,n_rows_observed,fraction_observed,model,mae,baseline_mae,delta_mae,train_rows,test_rows
+ground_only,,2979,2979,1.0,ridge,18.71,21.41,-2.7,2122,531
+ground_station_met,station_met,2979,2979,1.0,ridge,20.0,21.41,-1.41,1249,313
+ground_aod,aod,2979,139,0.04665995300436388,ridge,35.96,21.41,14.55,111,28
+ground_merra,merra,2979,172,0.057737495803961064,ridge,47.71,21.41,26.3,136,34
+ground_all,station_met+merra+aod,2979,139,0.04665995300436388,ridge,46.49,21.41,25.08,96,24

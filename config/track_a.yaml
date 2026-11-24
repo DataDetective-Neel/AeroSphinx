@@ -1,0 +1,59 @@
+# Track A - historical CPCB-based PM2.5 forecasting.
+#
+# Track A uses the CPCB ground record only. It is the first track to be
+# implemented because the CPCB record spans 9 years and ~2,979 accepted
+# daily days, roughly 18x the 166-row multisource frame.
+
+features:
+  # Lags are calendar-aware: lag_k is the observation dated exactly k
+  # calendar days before the target date. Where that date is absent the
+  # value is NaN, never a stale observation relabelled.
+  calendar_aware_lags: true
+  pm25_lags: [1, 2, 3, 7]
+
+  # Rolling statistics use only strictly prior calendar days and report
+  # how many observations contributed.
+  rolling_windows: [3, 7]
+  rolling_min_periods: 1
+
+  # Calendar encodings.
+  cyclic_day_of_week: true
+  cyclic_month: true
+
+  # Station-local meteorology from the CPCB export itself. These are
+  # same-station, same-timestamp observations available across the whole
+  # 2016-2024 record. Their provenance is unconfirmed (see
+  # docs/reference/SCIENTIFIC_ASSUMPTIONS.md H4), so they are disabled by default
+  # and enabled only after the provenance check passes.
+  use_station_meteorology: false
+  station_meteorology_columns:
+    - "AT (°C)"
+    - "RH (%)"
+    - "WS (m/s)"
+    - "WD (deg)"
+    - "RF (mm)"
+    - "SR (W/mt2)"
+    - "BP (mmHg)"
+    - "VWS (m/s)"
+
+evaluation:
+  # Rolling-origin backtesting. Fold boundaries are generated from the
+  # validated dataset, never hardcoded.
+  strategy: rolling_origin
+  min_train_days: 365
+  min_validation_days: 30
+  test_block_days: 30
+  step_days: 30
+
+  # Mandatory uncertainty reporting.
+  report_paired_tests: true
+  report_bootstrap_ci: true
+  bootstrap_samples: 10000
+  alpha: 0.05
+
+baselines:
+  - persistence
+  - seasonal_naive
+  - ridge
+  - random_forest
+  - xgboost

@@ -1,0 +1,136 @@
+{
+  "run_id": "F-fusion-20261113T102307Z",
+  "generated_utc": "2026-11-13T10:23:07+00:00",
+  "git": {
+    "head_sha": "fe10317f120d6c39b3f0a116488300f6beb21829",
+    "branch": "main",
+    "dirty": true,
+    "dirty_entries": 20
+  },
+  "environment": {
+    "python": "3.12.13",
+    "platform": "Linux-7.0.12-arch1-1-x86_64-with-glibc2.43",
+    "packages": {
+      "numpy": "2.5.4",
+      "pandas": "3.1.1",
+      "scikit-learn": "1.9.1",
+      "xgboost": "3.4.1",
+      "joblib": "1.6.0",
+      "matplotlib": "3.11.2",
+      "h5py": "3.16.0",
+      "xarray": "2026.9.0",
+      "netCDF4": "1.7.5.1.post1",
+      "scipy": "1.18.1",
+      "PyYAML": "6.0.3"
+    }
+  },
+  "inputs": {
+    "features_csv": "data/processed/track_a_features.csv",
+    "cpcb_dir": "data/cpcb",
+    "aod_dir": "data/aod",
+    "merra_dir": "data/merra2"
+  },
+  "dataset": {
+    "rows": 2979,
+    "date_range": [
+      "2016-01-01",
+      "2024-12-31"
+    ],
+    "ground_rows": 2979,
+    "per_source_observed_rows": {
+      "station_met": 2979,
+      "merra": 172,
+      "aod": 139
+    },
+    "rows_with_all_sources_observed": 139,
+    "rows_with_no_source_observed": 0
+  },
+  "rules": {
+    "fusion": {
+      "date_column": "Date",
+      "target": "PM25",
+      "sources": [
+        "station_met",
+        "merra",
+        "aod"
+      ],
+      "missing_value_policy": "preserve",
+      "missing_value_note": "Missing environmental observations are preserved as NaN. No forward-fill, interpolation or imputation is permitted. Per-source <source>_observed flags and <source>_observation_age_days columns make the missingness visible instead of manufacturing a value.\n",
+      "min_observed_values_per_source": 1,
+      "support_counts_are_metadata": true,
+      "min_matched_rows_for_inference": 30,
+      "min_matched_rows_rationale": "Same threshold as aerosphinx.tracks.workstream_c group comparisons. A source with fewer matched rows is reported but flagged as insufficient evidence; Phase 5's MERRA-2 group had 5 matched test rows and was declared untestable on that basis.\n"
+    },
+    "source_groups": [
+      {
+        "name": "station_met",
+        "features": [
+          "AT",
+          "RH",
+          "WS",
+          "WD",
+          "RF",
+          "TOT_RF",
+          "SR",
+          "VWS"
+        ],
+        "availability": "station_local_unknown_availability",
+        "operational_eligible": false,
+        "description": "CPCB station-local meteorological measurements, daily aggregated from the hourly export: air temperature, relative humidity, wind speed and direction, rainfall, cumulative rainfall, solar radiation and vertical wind speed. The barometric pressure column is excluded: it fails the Phase 5 physical cross-validation against MERRA-2.",
+        "enabled": true,
+        "note": "RETROSPECTIVE ONLY. The Phase 3 Workstream D audit confirmed these are genuine hourly station-local measurements (zero identical values against MERRA-2 across 516 matched hours), but the CPCB export carries no publication or upload timestamp, so the time at which each value became available to a forecaster cannot be established. No publication lag is assumed. Excluded from every operational feature contract. The barometric pressure column BP is excluded from this group because the Phase 5 cross-validation found daily means up to 1062 mmHg (1416 hPa, above sea-level pressure at sea level) on 107 days, anti-correlation with the MERRA-2 surface pressure at the same site, and a diurnal maximum at 10h rather than near dawn.",
+        "metadata": {}
+      },
+      {
+        "name": "merra",
+        "features": [
+          "T2M_midday",
+          "TS_midday",
+          "QV2M_midday",
+          "U10M_midday",
+          "V10M_midday",
+          "SLP_midday"
+        ],
+        "availability": "reanalysis",
+        "operational_eligible": false,
+        "description": "MERRA-2 reanalysis at the station grid cell, averaged over the three hourly timesteps (11:30, 12:30, 13:30 UTC) that the distributed granules contain.",
+        "enabled": true,
+        "note": "RETROSPECTIVE ONLY, and never operational. Reanalysis is not available at forecast issue time: it is an assimilation product for a past period, not a forecast of a future one. The feature names carry the '_midday' suffix because the granules contain a midday window, not a daily mean.",
+        "metadata": {}
+      },
+      {
+        "name": "aod",
+        "features": [
+          "AOD",
+          "aod_valid_pixels",
+          "aod_overpasses"
+        ],
+        "availability": "observed_satellite",
+        "operational_eligible": false,
+        "description": "INSAT-3D aerosol optical depth in the station collocation window, together with the number of valid pixels supporting it and the number of overpasses averaged into the daily value. The support columns are included because the pixel count is the only available proxy for retrieval quality: the granules carry no QA or cloud-flag dataset.",
+        "enabled": true,
+        "note": "Enabled after the Phase 4 validation, which verified the extraction against every granule: uniform structure, the HDF5 dimension-scale orientation corroborated independently by the ocean-versus-land aerosol contrast, fill value -999.0, no duplicate date-overpass keys, and collocation-window sensitivity reported. Retrospective only: the observation is for a past date and the publication latency is not established, and no satellite forecast product exists in the repository.",
+        "metadata": {
+          "validated_in": "Phase 4",
+          "known_limitation": "The granules carry no QA or cloud-flag dataset, so a present pixel means a retrieval was attempted, not that the retrieval is trustworthy."
+        }
+      }
+    ],
+    "availability_contract": {
+      "ground_only": "operationally eligible",
+      "station_met": "retrospective only - availability timestamp UNKNOWN",
+      "merra": "retrospective only - reanalysis is never operational",
+      "aod": "retrospective only - no satellite forecast product"
+    },
+    "phase": "6 - multisource fusion and availability"
+  },
+  "outputs": {
+    "fused_dataset": "data/processed/fused_dataset.csv",
+    "run_dir": "results/runs/F-fusion-20261113T102307Z",
+    "files": [
+      "alignment_audit.json",
+      "availability_mask.csv",
+      "availability_summary.json"
+    ]
+  }
+}

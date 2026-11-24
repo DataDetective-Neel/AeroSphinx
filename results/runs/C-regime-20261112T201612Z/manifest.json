@@ -1,0 +1,228 @@
+{
+  "run_id": "C-regime-20261112T201612Z",
+  "generated_utc": "2026-11-12T20:16:13+00:00",
+  "git": {
+    "head_sha": "cdf950641eb39b4deff78a9ea4e88a19a033c585",
+    "branch": "main",
+    "dirty": true,
+    "dirty_entries": 10
+  },
+  "environment": {
+    "python": "3.14.6",
+    "platform": "Linux-7.0.12-arch1-1-x86_64-with-glibc2.43",
+    "packages": {
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "scikit-learn": "1.9.1",
+      "xgboost": "3.4.1",
+      "joblib": "1.6.0",
+      "matplotlib": "3.11.2",
+      "h5py": "3.16.0",
+      "xarray": "2026.9.0",
+      "netCDF4": "1.7.5.1.post1",
+      "scipy": "1.18.1",
+      "PyYAML": "6.0.3"
+    }
+  },
+  "inputs": {
+    "daily_csv": "data/processed/track_a_daily.csv",
+    "cpcb_dir": "data/cpcb",
+    "merra_dir": "data/merra2"
+  },
+  "dataset": {
+    "rows": 2979,
+    "date_range": [
+      "2016-01-01",
+      "2024-12-31"
+    ],
+    "station_met_coverage": {
+      "n_days_total": 3288,
+      "n_days_accepted": 3288,
+      "coverage_fraction": 1.0,
+      "per_column_accepted_days": {
+        "AT": 3012,
+        "RH": 3006,
+        "WS": 3056,
+        "WD": 3053,
+        "RF": 3097,
+        "TOT_RF": 3288,
+        "SR": 2977,
+        "BP": 2404,
+        "VWS": 1776
+      },
+      "per_column_missing_fraction": {
+        "AT": 0.0839,
+        "RH": 0.0858,
+        "WS": 0.0706,
+        "WD": 0.0715,
+        "RF": 0.0581,
+        "TOT_RF": 0.0,
+        "SR": 0.0946,
+        "BP": 0.2689,
+        "VWS": 0.4599
+      },
+      "mean_columns_present_per_accepted_day": 7.807
+    },
+    "merra_timesteps_utc": [
+      "11:30",
+      "12:30",
+      "13:30"
+    ],
+    "merra_grid_cell": [
+      28.5,
+      77.5
+    ]
+  },
+  "rules": {
+    "evaluation": {
+      "strategy": "rolling_origin",
+      "min_train_days": 365,
+      "min_validation_days": 30,
+      "test_block_days": 30,
+      "step_days": 30,
+      "report_paired_tests": true,
+      "report_bootstrap_ci": true,
+      "bootstrap_samples": 10000,
+      "alpha": 0.05
+    },
+    "workstream": "C - regime-conditional modelling, ablation, routing",
+    "configuration": {
+      "group_sets": {
+        "ground_only": [
+          "pm25_history",
+          "calendar"
+        ],
+        "ground_plus_station_met": [
+          "pm25_history",
+          "calendar",
+          "station_met"
+        ],
+        "ground_plus_merra": [
+          "pm25_history",
+          "calendar",
+          "merra"
+        ]
+      },
+      "architectures": [
+        "global",
+        "seasonal",
+        "interaction",
+        "routing",
+        "shared"
+      ],
+      "model_name": "ridge",
+      "horizons": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "methods": [
+        "direct",
+        "recursive"
+      ],
+      "min_specialist_days": 180,
+      "min_specialist_candidates": [
+        60,
+        120,
+        180,
+        240,
+        365
+      ],
+      "n_folds": 95,
+      "selection_rule": "lowest pooled validation MAE; test scores were not consulted",
+      "availability_note": "station_met and merra are retrospective-only groups. Their results are retrospective estimations, not operational forecasts. The ground-only group set is the only one that satisfies the operational feature contract."
+    },
+    "feature_groups": [
+      {
+        "name": "calendar",
+        "features": [
+          "day_sin",
+          "day_cos",
+          "month_sin",
+          "month_cos"
+        ],
+        "availability": "calendar",
+        "operational_eligible": true,
+        "description": "Cyclic encodings of day-of-week and month, preserving the circular topology of the weekly and annual cycles.",
+        "enabled": true,
+        "note": "",
+        "metadata": {}
+      },
+      {
+        "name": "merra",
+        "features": [
+          "T2M_midday",
+          "TS_midday",
+          "QV2M_midday",
+          "U10M_midday",
+          "V10M_midday",
+          "SLP_midday"
+        ],
+        "availability": "reanalysis",
+        "operational_eligible": false,
+        "description": "MERRA-2 reanalysis at the station grid cell, averaged over the three hourly timesteps (11:30, 12:30, 13:30 UTC) that the distributed granules contain.",
+        "enabled": true,
+        "note": "RETROSPECTIVE ONLY, and never operational. Reanalysis is not available at forecast issue time: it is an assimilation product for a past period, not a forecast of a future one. The feature names carry the '_midday' suffix because the granules contain a midday window, not a daily mean.",
+        "metadata": {}
+      },
+      {
+        "name": "pm25_history",
+        "features": [
+          "PM25_Lag_1",
+          "PM25_Lag_2",
+          "PM25_Lag_3",
+          "PM25_Lag_7",
+          "PM25_Roll3",
+          "PM25_Roll7"
+        ],
+        "availability": "observed_ground_history",
+        "operational_eligible": true,
+        "description": "Calendar-aware PM2.5 history: lags at 1, 2, 3 and 7 calendar days and 3- and 7-day rolling means, all computed from strictly prior calendar days.",
+        "enabled": true,
+        "note": "",
+        "metadata": {}
+      },
+      {
+        "name": "station_met",
+        "features": [
+          "AT",
+          "RH",
+          "WS",
+          "WD",
+          "RF",
+          "TOT_RF",
+          "SR",
+          "BP",
+          "VWS"
+        ],
+        "availability": "station_local_unknown_availability",
+        "operational_eligible": false,
+        "description": "CPCB station-local meteorological measurements, daily aggregated from the hourly export: air temperature, relative humidity, wind speed and direction, rainfall, cumulative rainfall, solar radiation, barometric pressure and vertical wind speed.",
+        "enabled": true,
+        "note": "RETROSPECTIVE ONLY. The Phase 3 Workstream D audit confirmed these are genuine hourly station-local measurements (zero identical values against MERRA-2 across 516 matched hours), but the CPCB export carries no publication or upload timestamp, so the time at which each value became available to a forecaster cannot be established. No publication lag is assumed. Excluded from every operational feature contract.",
+        "metadata": {}
+      }
+    ],
+    "availability_contract": {
+      "ground_only": "operationally eligible",
+      "station_met": "retrospective only - availability timestamp UNKNOWN",
+      "merra": "retrospective only - reanalysis is never operational"
+    }
+  },
+  "outputs": {
+    "run_dir": "results/runs/C-regime-20261112T201612Z",
+    "files": [
+      "ablation.csv",
+      "architecture_test.csv",
+      "architecture_validation.csv",
+      "by_horizon_season.csv",
+      "group_pairwise.csv",
+      "metrics.json",
+      "predictions.csv",
+      "selected_performance.csv",
+      "selection.csv"
+    ]
+  }
+}

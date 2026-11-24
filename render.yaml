@@ -1,0 +1,29 @@
+# Render blueprint for AeroSphinx.
+#
+# One Python web service serves both the API (/api/*) and the built React
+# single-page app (/), so the browser makes same-origin calls and no
+# VITE_API_BASE or CORS configuration is needed.
+#
+# The API is standard-library only: it reads the committed research
+# artefacts in data/processed/ and results/. The UI is the only thing that
+# needs a build step.
+
+services:
+  - type: web
+    name: aerosphinx
+    runtime: python
+    plan: free
+    region: oregon
+    buildCommand: "cd ui && npm ci && npm run build"
+    startCommand: "python api/server.py"
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      # Fully qualified versions are required by Render's PYTHON_VERSION /
+      # NODE_VERSION variables. Node must stay >=22.12 (Vite 8 requirement).
+      - key: PYTHON_VERSION
+        value: 3.12.13
+      - key: NODE_VERSION
+        value: 24.22.1
+      - key: PYTHONUNBUFFERED
+        value: "1"

@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this software or its results, please cite the paper below. The git history records individual software contributions."
+title: "A Multi-Source Machine Learning Framework for Satellite-Fused PM2.5 Estimation and Five-Day Atmospheric Forecasting over Urban India"
+abstract: >-
+  A reproducibility-first research platform for daily PM2.5 estimation over
+  Faridabad, Delhi-NCR, combining CPCB ground observations (2016-2024),
+  INSAT-3D Level-2G aerosol optical depth and MERRA-2 reanalysis. The
+  repository reports two separately evaluated tracks: historical ground-only
+  prediction, and whether satellite and meteorological inputs add measurable
+  value. Every published number is traced to a persisted artefact.
+authors:
+  - family-names: Bhakta
+    given-names: Raju
+    affiliation: "Mathematics and Basic Sciences, NIIT University, Neemrana, Rajasthan, India"
+  - family-names: Chatterjee
+    given-names: Indraneel
+    affiliation: "Mathematics and Basic Sciences, NIIT University, Neemrana, Rajasthan, India"
+type: software
+license: MIT
+version: 0.2.0
+date-released: 2026-11-23
+repository-code: "https://github.com/AkshatGo/AeroSphinx"
+url: "https://aerosphinx.onrender.com"
+keywords:
+  - air quality
+  - PM2.5
+  - aerosol optical depth
+  - INSAT-3D
+  - MERRA-2
+  - forecasting
+  - reproducibility

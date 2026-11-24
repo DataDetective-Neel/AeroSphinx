@@ -1,0 +1,265 @@
+{
+  "generated": "2026-10-26T12:31:31",
+  "configuration_name": "tuned",
+  "configuration": {
+    "target_transform": "log1p",
+    "recency_halflife": null,
+    "persistence_anchor": 0.4,
+    "extra_features": [
+      "PM25_Roll3",
+      "PM25_Roll7"
+    ]
+  },
+  "random_state": 42,
+  "station": {
+    "name": "Faridabad",
+    "lat": 28.4089,
+    "lon": 77.3178
+  },
+  "coverage": {
+    "cpcb_daily_rows": 2979,
+    "cpcb_start": "2016-01-01",
+    "cpcb_end": "2024-12-31",
+    "aod_daily_rows": 139,
+    "aod_start": "2024-01-01",
+    "aod_end": "2024-06-18",
+    "merra_daily_rows": 172,
+    "merra_start": "2024-01-01",
+    "merra_end": "2024-06-20",
+    "model_rows": 166,
+    "model_start": "2024-01-07",
+    "model_end": "2024-06-21"
+  },
+  "features_used": [
+    "AOD",
+    "T2M",
+    "TS",
+    "QV2M",
+    "U10M",
+    "V10M",
+    "SLP",
+    "Temp_Diff",
+    "Humidity_Ratio",
+    "PM25_Lag_1",
+    "PM25_Lag_2",
+    "PM25_Lag_3",
+    "day_sin",
+    "day_cos",
+    "month_sin",
+    "month_cos",
+    "PM25_Roll3",
+    "PM25_Roll7"
+  ],
+  "features_unavailable": [
+    "PBLH"
+  ],
+  "hyperparameters": {
+    "RandomForest": {
+      "n_estimators": 200,
+      "max_depth": 10,
+      "min_samples_split": 5,
+      "min_samples_leaf": 2,
+      "random_state": 42
+    },
+    "XGBoost": {
+      "n_estimators": 200,
+      "max_depth": 6,
+      "learning_rate": 0.05,
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "objective": "reg:squarederror",
+      "random_state": 42
+    }
+  },
+  "split": {
+    "strategy": "chronological_holdout_most_recent_window",
+    "train_start": "2024-01-07",
+    "train_end": "2024-05-16",
+    "test_start": "2024-05-17",
+    "test_end": "2024-06-18",
+    "n_train": 130,
+    "n_test": 33
+  },
+  "validation_window": {
+    "start": "2024-04-10",
+    "end": "2024-05-16"
+  },
+  "metrics": {
+    "RandomForest": {
+      "MAE": 17.82073722940131,
+      "RMSE": 23.370346864060657,
+      "R2": -0.023546014271398352,
+      "AQI_Accuracy": 0.5454545454545454,
+      "Mean_Bias": 6.459281601118746,
+      "Observed_SD": 23.099973013570125
+    },
+    "XGBoost": {
+      "MAE": 16.940769672432328,
+      "RMSE": 22.419008894475404,
+      "R2": 0.058088989788133705,
+      "AQI_Accuracy": 0.48484848484848486,
+      "Mean_Bias": 3.74225141983803,
+      "Observed_SD": 23.099973013570125
+    },
+    "WeightedEnsemble_0.6RF_0.4XGB": {
+      "MAE": 17.297685100837498,
+      "RMSE": 22.902473000920907,
+      "R2": 0.01702648919231753,
+      "AQI_Accuracy": 0.5454545454545454,
+      "Mean_Bias": 5.3449664963514705,
+      "Observed_SD": 23.099973013570125
+    },
+    "Ensemble_without_anchor": {
+      "MAE": 20.117964708588865,
+      "RMSE": 26.17697813706137,
+      "R2": -0.28415094438270705,
+      "AQI_Accuracy": 0.5151515151515151,
+      "Mean_Bias": 8.906450894592517,
+      "Observed_SD": 23.099973013570125
+    }
+  },
+  "baselines": {
+    "Satellite_AOD_only": {
+      "MAE": 19.259564768136507,
+      "RMSE": 24.35516670204198,
+      "R2": -0.11162746393549572,
+      "AQI_Accuracy": 0.6363636363636364,
+      "Mean_Bias": 12.393240572900115,
+      "Observed_SD": 23.099973013570125
+    },
+    "Meteorology_only": {
+      "MAE": 20.118797474883852,
+      "RMSE": 26.81066034445506,
+      "R2": -0.347075931115862,
+      "AQI_Accuracy": 0.5454545454545454,
+      "Mean_Bias": 8.223182050860762,
+      "Observed_SD": 23.099973013570125
+    },
+    "Ground_history_only": {
+      "MAE": 16.61670185770481,
+      "RMSE": 23.670605999082152,
+      "R2": -0.0500157371382719,
+      "AQI_Accuracy": 0.6363636363636364,
+      "Mean_Bias": 7.1467299133386515,
+      "Observed_SD": 23.099973013570125
+    },
+    "No_satellite_AOD": {
+      "MAE": 17.204721179567752,
+      "RMSE": 22.97574211394804,
+      "R2": 0.01072701207841742,
+      "AQI_Accuracy": 0.5757575757575758,
+      "Mean_Bias": 5.664967541458692,
+      "Observed_SD": 23.099973013570125
+    },
+    "Persistence_baseline": {
+      "MAE": 19.91849747474747,
+      "RMSE": 24.186053295353535,
+      "R2": -0.09624358758616935,
+      "AQI_Accuracy": 0.42424242424242425,
+      "Mean_Bias": 0.0027398989898990817,
+      "Observed_SD": 23.099973013570125
+    },
+    "Climatology_baseline": {
+      "MAE": 35.86574665988189,
+      "RMSE": 44.32161871881038,
+      "R2": -2.6813599364204483,
+      "AQI_Accuracy": 0.24242424242424243,
+      "Mean_Bias": -35.850788071017064,
+      "Observed_SD": 23.099973013570125
+    }
+  },
+  "five_day_forecast": [
+    {
+      "Date": "2024-06-14",
+      "horizon_day": 1,
+      "actual_PM25": 92.24791666666665,
+      "predicted_PM25": 104.46365272897091,
+      "absolute_error": 12.21573606230426,
+      "predicted_AQI_class": "Poor"
+    },
+    {
+      "Date": "2024-06-15",
+      "horizon_day": 2,
+      "actual_PM25": 79.06541666666666,
+      "predicted_PM25": 103.84347036395471,
+      "absolute_error": 24.778053697288044,
+      "predicted_AQI_class": "Poor"
+    },
+    {
+      "Date": "2024-06-16",
+      "horizon_day": 3,
+      "actual_PM25": 93.42833333333333,
+      "predicted_PM25": 104.59754168881732,
+      "absolute_error": 11.169208355483988,
+      "predicted_AQI_class": "Poor"
+    },
+    {
+      "Date": "2024-06-17",
+      "horizon_day": 4,
+      "actual_PM25": 78.74666666666667,
+      "predicted_PM25": 104.29707953805084,
+      "absolute_error": 25.550412871384168,
+      "predicted_AQI_class": "Poor"
+    },
+    {
+      "Date": "2024-06-18",
+      "horizon_day": 5,
+      "actual_PM25": 93.92625,
+      "predicted_PM25": 107.08031369711527,
+      "absolute_error": 13.154063697115276,
+      "predicted_AQI_class": "Poor"
+    }
+  ],
+  "forward_forecast": [
+    {
+      "Date": "2024-06-22",
+      "horizon_day": 1,
+      "predicted_PM25": 96.59914328935443,
+      "predicted_AQI_class": "Poor",
+      "meteorology_source": "persisted from 2024-06-21"
+    },
+    {
+      "Date": "2024-06-23",
+      "horizon_day": 2,
+      "predicted_PM25": 112.26035982670344,
+      "predicted_AQI_class": "Poor",
+      "meteorology_source": "persisted from 2024-06-21"
+    },
+    {
+      "Date": "2024-06-24",
+      "horizon_day": 3,
+      "predicted_PM25": 122.1787293054991,
+      "predicted_AQI_class": "Very Poor",
+      "meteorology_source": "persisted from 2024-06-21"
+    },
+    {
+      "Date": "2024-06-25",
+      "horizon_day": 4,
+      "predicted_PM25": 129.6351289542817,
+      "predicted_AQI_class": "Very Poor",
+      "meteorology_source": "persisted from 2024-06-21"
+    },
+    {
+      "Date": "2024-06-26",
+      "horizon_day": 5,
+      "predicted_PM25": 138.50525741762092,
+      "predicted_AQI_class": "Very Poor",
+      "meteorology_source": "persisted from 2024-06-21"
+    }
+  ],
+  "data_notes": [
+    "Model rows require CPCB, INSAT-3D AOD and MERRA-2 to be jointly available on the same day, after a three-day forward fill.",
+    "INSAT-3D and MERRA-2 granules held locally cover 2024 only, so the multi-source model is trained and tested within 2024 even though the CPCB record extends back to 2016.",
+    "Model configuration 'tuned' selected on the validation window 2024-04-10 to 2024-05-16, which ends before the test window begins; the test set influenced no modelling choice.",
+    "The operational forward forecast persists meteorological and satellite inputs from the last observed day as a placeholder for NWP forecast fields; it is not driven by a real weather forecast.",
+    "Requested features absent from every local granule and therefore excluded rather than imputed: PBLH.",
+    "MERRA-2 variable V10M missing on 2 of 172 days before complete-case filtering."
+  ],
+  "figures": [
+    "fig3_monthly_pm25_climatology.png",
+    "fig4_observed_vs_predicted.png",
+    "fig5_residuals.png",
+    "fig6_feature_importance.png",
+    "fig7_five_day_forecast.png"
+  ]
+}

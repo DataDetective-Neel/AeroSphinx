@@ -1,5 +1,10 @@
 # AeroSphinx reproducibility package
-# Python 3.9 or later; CPU only, no specialised hardware required.
+# Python 3.10 or later (PEP 604 unions in the source); CPU only.
+#
+# This file mirrors the runtime dependencies in pyproject.toml and exists so
+# `pip install -r requirements.txt` works on its own. If the two ever differ,
+# pyproject.toml is authoritative and `scripts/check_claims.py` does not check
+# it — keep them in sync by hand.
 numpy>=1.26
 pandas>=2.0
 scikit-learn>=1.4
@@ -9,3 +14,5 @@ matplotlib>=3.8
 h5py>=3.10
 xarray>=2024.1
 netCDF4>=1.6
+PyYAML>=6.0
+scipy>=1.11

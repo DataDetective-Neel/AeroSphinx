@@ -1,0 +1,150 @@
+{
+  "configs": [
+    {
+      "id": "M0",
+      "name": "Persistence baseline",
+      "groups": [
+        "pm25_history",
+        "calendar"
+      ],
+      "family": "persistence",
+      "season_mode": "none",
+      "operational_eligible": true,
+      "question": "How well does yesterday's PM2.5 predict tomorrow's?"
+    },
+    {
+      "id": "M1",
+      "name": "CPCB-only global",
+      "groups": [
+        "pm25_history",
+        "calendar"
+      ],
+      "family": "learned",
+      "season_mode": "none",
+      "operational_eligible": true,
+      "question": "Does a learned model using ground history alone beat persistence?"
+    },
+    {
+      "id": "M2",
+      "name": "CPCB + INSAT AOD",
+      "groups": [
+        "pm25_history",
+        "calendar",
+        "aod"
+      ],
+      "family": "learned",
+      "season_mode": "none",
+      "operational_eligible": false,
+      "question": "Does AOD add predictive information on matched dates?"
+    },
+    {
+      "id": "M3",
+      "name": "CPCB + MERRA-2",
+      "groups": [
+        "pm25_history",
+        "calendar",
+        "merra"
+      ],
+      "family": "learned",
+      "season_mode": "none",
+      "operational_eligible": false,
+      "question": "Does MERRA-2 add predictive information on matched dates?"
+    },
+    {
+      "id": "M4",
+      "name": "CPCB + INSAT + MERRA-2",
+      "groups": [
+        "pm25_history",
+        "calendar",
+        "aod",
+        "merra"
+      ],
+      "family": "learned",
+      "season_mode": "none",
+      "operational_eligible": false,
+      "question": "Does full multisource fusion beat the ground-only model?"
+    },
+    {
+      "id": "M5",
+      "name": "Multisource global + season",
+      "groups": [
+        "pm25_history",
+        "calendar",
+        "aod",
+        "merra"
+      ],
+      "family": "learned",
+      "season_mode": "categorical",
+      "operational_eligible": false,
+      "question": "Does a season categorical feature improve one global model?"
+    },
+    {
+      "id": "M6",
+      "name": "Multisource + season interactions",
+      "groups": [
+        "pm25_history",
+        "calendar",
+        "aod",
+        "merra"
+      ],
+      "family": "learned",
+      "season_mode": "interaction",
+      "operational_eligible": false,
+      "question": "Do season-feature interaction terms improve one global model?"
+    },
+    {
+      "id": "M7",
+      "name": "Four independent seasonal models",
+      "groups": [
+        "pm25_history",
+        "calendar",
+        "aod",
+        "merra"
+      ],
+      "family": "learned",
+      "season_mode": "independent",
+      "operational_eligible": false,
+      "question": "Does a specialist per season beat the global model?"
+    },
+    {
+      "id": "M8",
+      "name": "Seasonal with global fallback",
+      "groups": [
+        "pm25_history",
+        "calendar",
+        "aod",
+        "merra"
+      ],
+      "family": "learned",
+      "season_mode": "fallback",
+      "operational_eligible": false,
+      "question": "Does seasonal selection with an unconditional global fallback help?"
+    }
+  ],
+  "track_a": [
+    {
+      "id": "M0",
+      "name": "Persistence baseline",
+      "groups": [
+        "pm25_history",
+        "calendar"
+      ],
+      "family": "persistence",
+      "season_mode": "none",
+      "operational_eligible": true,
+      "question": "How well does yesterday's PM2.5 predict tomorrow's?"
+    },
+    {
+      "id": "M1",
+      "name": "CPCB-only global",
+      "groups": [
+        "pm25_history",
+        "calendar"
+      ],
+      "family": "learned",
+      "season_mode": "none",
+      "operational_eligible": true,
+      "question": "Does a learned model using ground history alone beat persistence?"
+    }
+  ]
+}

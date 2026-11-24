@@ -1,0 +1,316 @@
+{
+  "generated_utc": "2026-11-12T09:13:15+00:00",
+  "root": "/home/akshat/Downloads/AeroSphinx",
+  "cpcb": {
+    "directory": "data/cpcb",
+    "file_count": 9,
+    "files": [
+      {
+        "name": "City_wise_raw_data_1Hr_2016_Faridabad_1Hr.csv",
+        "bytes": 1021969,
+        "sha256": "f581277b29c7fed9cff0074e85001d2ffbc99b2f1c22b61171d23c808290833f",
+        "hourly_rows": 8784,
+        "pm25_invalid_screened": 407
+      },
+      {
+        "name": "City_wise_raw_data_1Hr_2017_Faridabad_1Hr.csv",
+        "bytes": 961828,
+        "sha256": "964f92cafecfb945190ec28d0bfa42f12eb32b4f5a4fa53aad3dcd76028859f9",
+        "hourly_rows": 8760,
+        "pm25_invalid_screened": 132
+      },
+      {
+        "name": "City_wise_raw_data_1Hr_2018_Faridabad_1Hr.csv",
+        "bytes": 1070696,
+        "sha256": "a0cef1ff94103f93ba6ae9d6145c3933a97d1338bff0dea3d18c166ec94ac9f4",
+        "hourly_rows": 8760,
+        "pm25_invalid_screened": 65
+      },
+      {
+        "name": "City_wise_raw_data_1Hr_2019_Faridabad_1Hr.csv",
+        "bytes": 921695,
+        "sha256": "843e037c3fc66c17c5f56fcc0b7714df4b3c9793827b51c9f54ac1f23fdf6071",
+        "hourly_rows": 8760,
+        "pm25_invalid_screened": 66
+      },
+      {
+        "name": "City_wise_raw_data_1Hr_2020_Faridabad_1Hr.csv",
+        "bytes": 1774847,
+        "sha256": "a4605254b4e9a26657f7af5998518ffceb8a3a1b6aa09b632a4d6d0c07316273",
+        "hourly_rows": 8784,
+        "pm25_invalid_screened": 33
+      },
+      {
+        "name": "City_wise_raw_data_1Hr_2021_Faridabad_1Hr.csv",
+        "bytes": 2074354,
+        "sha256": "79bba1a4554360089b924b657b6c28307082dab5a1c136223c37c28e152bc67b",
+        "hourly_rows": 8760,
+        "pm25_invalid_screened": 29
+      },
+      {
+        "name": "City_wise_raw_data_1Hr_2022_Faridabad_1Hr.csv",
+        "bytes": 2219853,
+        "sha256": "c2999c6b76276928c3ac2f43f6d7ca9573e055e66e36b1e74313f46a00122049",
+        "hourly_rows": 8760,
+        "pm25_invalid_screened": 1
+      },
+      {
+        "name": "City_wise_raw_data_1Hr_2023_Faridabad_1Hr.csv",
+        "bytes": 2604492,
+        "sha256": "78c1ff47c4b2a2fff3d5ce5e75582788a184db0205bde286504ccf695d428817",
+        "hourly_rows": 8760,
+        "pm25_invalid_screened": 1
+      },
+      {
+        "name": "City_wise_raw_data_1Hr_2024_Faridabad_1Hr.csv",
+        "bytes": 1280190,
+        "sha256": "1781b24c265786b1314309a7f8ceb812c5267183f77d4482aea3c008dd589830",
+        "hourly_rows": 8784,
+        "pm25_invalid_screened": 2
+      }
+    ],
+    "hourly_rows_total": 78912,
+    "daily_rows_accepted": 2979,
+    "daily_rows_rejected_min_hours": 309,
+    "calendar_gaps_over_1_day": 123,
+    "max_gap_days": 25,
+    "duplicate_hour_rows_across_files": 0,
+    "mean_of_means_vs_hour_weighted_mismatch_days": 0,
+    "per_year": {
+      "2016": 261,
+      "2017": 254,
+      "2018": 340,
+      "2019": 310,
+      "2020": 359,
+      "2021": 362,
+      "2022": 363,
+      "2023": 364,
+      "2024": 366
+    },
+    "daily_date_range": [
+      "2016-01-01",
+      "2024-12-31"
+    ],
+    "mean_of_means_vs_hour_weighted_max_abs_diff": 1.1368683772161603e-13,
+    "rows_where_lag1_is_not_previous_calendar_day": 123,
+    "max_lag1_calendar_age_days": 25,
+    "lag1_stale_examples": [
+      {
+        "date": "2016-01-15",
+        "lag1_value": 332.84708333333333,
+        "calendar_age_days": 9
+      },
+      {
+        "date": "2016-01-22",
+        "lag1_value": 168.02380952380952,
+        "calendar_age_days": 7
+      }
+    ],
+    "status": "OK"
+  },
+  "insat_aod": {
+    "directory": "data/aod",
+    "file_count": 169,
+    "status": "OK",
+    "datasets_present": [
+      "AOD",
+      "latitude",
+      "longitude",
+      "time"
+    ],
+    "has_qa_flag_dataset": false,
+    "distinct_dates": 166,
+    "date_range": [
+      "2024-01-01",
+      "2024-06-18"
+    ],
+    "overpass_time_utc_counts": {
+      "0530": 154,
+      "0600": 7,
+      "0630": 4,
+      "0700": 3,
+      "0730": 1
+    },
+    "distinct_bounding_boxes": [
+      [
+        -9.95,
+        45.05,
+        45.05,
+        100.05
+      ]
+    ],
+    "hdf5_dimension_scales": {
+      "AOD": [
+        "/time",
+        "/latitude",
+        "/longitude"
+      ],
+      "latitude": [],
+      "longitude": [],
+      "time": []
+    },
+    "fill_value": -999.0,
+    "station_window_pixels_max": 25,
+    "granules_with_zero_valid_pixels": 27,
+    "station_window_valid_pixels": {
+      "count": 142,
+      "min": 1,
+      "median": 12.0,
+      "mean": 14.148,
+      "max": 25
+    },
+    "aod_value_range_observed": [
+      0.0186,
+      2.987556
+    ],
+    "sample_file_attributes": {
+      "Acquisition_Date": "01APR2024",
+      "Acquisition_End_Time": "01-APR-2024T05:56:58",
+      "Acquisition_Start_Time": "01-APR-2024T05:30:08",
+      "Acquisition_Time_in_GMT": "0530",
+      "Ground_Station": "BES,SAC/ISRO,Ahmedabad,INDIA.",
+      "HDF_Product_File_Name": "3DIMG_01APR2024_0530_L2G_AOD_V02R00.h5",
+      "Nominal_Altitude(km)": "[36000.]",
+      "Nominal_Central_Point_Coordinates(degrees)_Latitude_Longitude": "[ 0. 82.]",
+      "Output_Format": "hdf5-1.8.8",
+      "Processing_Level": "L2G",
+      "Product_Creation_Time": "2024-04-01T11:52:31",
+      "Product_Type": "GEOPHY GRIDDED",
+      "Satellite_Name": "INSAT-3D",
+      "Sensor_Id": "IMG",
+      "Sensor_Name": "IMAGER",
+      "Software_Version": "1.0",
+      "Station_Id": "BES",
+      "Unique_Id": "3DIMG_01APR2024_0530",
+      "conventions": "CF-1.6",
+      "institute": "BES,SAC/ISRO,Ahmedabad,INDIA.",
+      "lat_interval": "[0.1]",
+      "left_longitude": "[45.05]",
+      "lon_interval": "[0.1]",
+      "lower_latitude": "[-9.95]",
+      "right_longitude": "[100.05]",
+      "source": "BES,SAC/ISRO,Ahmedabad,INDIA.",
+      "title": "3DIMG_01APR2024_0530_L2G",
+      "upper_latitude": "[45.05]"
+    }
+  },
+  "merra2": {
+    "directory": "data/merra2",
+    "file_count": 172,
+    "status": "OK",
+    "date_range": [
+      "2024-01-01",
+      "2024-06-20"
+    ],
+    "distinct_dates": 172,
+    "grid_points": [
+      [
+        28.5,
+        77.5
+      ]
+    ],
+    "time_signatures_utc": [
+      [
+        "11:30",
+        "12:30",
+        "13:30"
+      ]
+    ],
+    "timesteps_per_day": 3,
+    "variables_present_in_any_granule": [
+      "QV2M",
+      "SLP",
+      "T2M",
+      "TS",
+      "U10M",
+      "V10M"
+    ],
+    "requested_variable_availability": {
+      "T2M": 0,
+      "TS": 0,
+      "QV2M": 0,
+      "U10M": 0,
+      "V10M": 2,
+      "SLP": 0,
+      "PBLH": 172
+    },
+    "requested_variables_missing_in_all_granules": [
+      "PBLH"
+    ],
+    "fallback_substitutions_actually_triggered": null,
+    "variable_metadata": {
+      "T2M": {
+        "units": "K",
+        "long_name": "2-meter_air_temperature",
+        "standard_name": "2-meter_air_temperature"
+      },
+      "TS": {
+        "units": "K",
+        "long_name": "surface_skin_temperature",
+        "standard_name": "surface_skin_temperature"
+      },
+      "QV2M": {
+        "units": "kg kg-1",
+        "long_name": "2-meter_specific_humidity",
+        "standard_name": "2-meter_specific_humidity"
+      },
+      "U10M": {
+        "units": "m s-1",
+        "long_name": "10-meter_eastward_wind",
+        "standard_name": "10-meter_eastward_wind"
+      },
+      "V10M": {
+        "units": "m s-1",
+        "long_name": "10-meter_northward_wind",
+        "standard_name": "10-meter_northward_wind"
+      },
+      "SLP": {
+        "units": "Pa",
+        "long_name": "sea_level_pressure",
+        "standard_name": "sea_level_pressure"
+      }
+    },
+    "product": "MERRA2_400.tavg1_2d_slv_Nx (2-daily, 1-hourly, single-level)",
+    "is_reanalysis": true,
+    "is_forecast_available_at_issue_time": false
+  },
+  "alignment": {
+    "modelling_rows": 166,
+    "modelling_date_range": [
+      "2024-01-07",
+      "2024-06-21"
+    ],
+    "features_used": [
+      "AOD",
+      "T2M",
+      "TS",
+      "QV2M",
+      "U10M",
+      "V10M",
+      "SLP",
+      "Temp_Diff",
+      "Humidity_Ratio",
+      "PM25_Lag_1",
+      "PM25_Lag_2",
+      "PM25_Lag_3",
+      "day_sin",
+      "day_cos",
+      "month_sin",
+      "month_cos",
+      "PM25_Roll3",
+      "PM25_Roll7"
+    ],
+    "features_unavailable": [
+      "PBLH"
+    ],
+    "rows_with_genuine_aod": 159,
+    "rows_with_forward_filled_aod": 7,
+    "forward_filled_aod_fraction": 0.0422,
+    "rows_with_genuine_merra": 165,
+    "rows_with_forward_filled_merra": 1,
+    "forward_fill_limit_days": 3,
+    "cpcb_daily_rows_total": 2979,
+    "aod_daily_rows": 166,
+    "merra_daily_rows": 172
+  }
+}

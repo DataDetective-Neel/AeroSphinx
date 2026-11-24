@@ -1,0 +1,10 @@
+{
+  "n_folds": 96,
+  "n_extrapolating_folds": 8,
+  "n_observations": 22,
+  "n_observations_out_of_range": 22,
+  "fraction_out_of_range": 0.008203,
+  "mae_in_range": 21.86433805067841,
+  "mae_out_of_range": 15.85557480864546,
+  "mae_ratio": 0.7251797320318825
+}

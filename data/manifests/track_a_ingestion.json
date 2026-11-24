@@ -1,0 +1,122 @@
+{
+  "run_id": "A-ingest-20261112T092511Z",
+  "generated_utc": "2026-11-12T09:25:11+00:00",
+  "git": {
+    "head_sha": "5079ff7cb4cfa6e15c1803ebe19b56039709b8ab",
+    "branch": "main",
+    "dirty": true,
+    "dirty_entries": 6
+  },
+  "environment": {
+    "python": "3.14.6",
+    "platform": "Linux-7.0.12-arch1-1-x86_64-with-glibc2.43",
+    "packages": {
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "scikit-learn": "1.9.1",
+      "xgboost": "3.4.1",
+      "joblib": "1.6.0",
+      "matplotlib": "3.11.2",
+      "h5py": "3.16.0",
+      "xarray": "2026.9.0",
+      "netCDF4": "1.7.5.1.post1",
+      "scipy": "1.18.1",
+      "PyYAML": "6.0.3"
+    }
+  },
+  "inputs": {
+    "cpcb_dir": "data/cpcb",
+    "file_sha256": {
+      "City_wise_raw_data_1Hr_2016_Faridabad_1Hr.csv": "f581277b29c7fed9cff0074e85001d2ffbc99b2f1c22b61171d23c808290833f",
+      "City_wise_raw_data_1Hr_2017_Faridabad_1Hr.csv": "964f92cafecfb945190ec28d0bfa42f12eb32b4f5a4fa53aad3dcd76028859f9",
+      "City_wise_raw_data_1Hr_2018_Faridabad_1Hr.csv": "a0cef1ff94103f93ba6ae9d6145c3933a97d1338bff0dea3d18c166ec94ac9f4",
+      "City_wise_raw_data_1Hr_2019_Faridabad_1Hr.csv": "843e037c3fc66c17c5f56fcc0b7714df4b3c9793827b51c9f54ac1f23fdf6071",
+      "City_wise_raw_data_1Hr_2020_Faridabad_1Hr.csv": "a4605254b4e9a26657f7af5998518ffceb8a3a1b6aa09b632a4d6d0c07316273",
+      "City_wise_raw_data_1Hr_2021_Faridabad_1Hr.csv": "79bba1a4554360089b924b657b6c28307082dab5a1c136223c37c28e152bc67b",
+      "City_wise_raw_data_1Hr_2022_Faridabad_1Hr.csv": "c2999c6b76276928c3ac2f43f6d7ca9573e055e66e36b1e74313f46a00122049",
+      "City_wise_raw_data_1Hr_2023_Faridabad_1Hr.csv": "78c1ff47c4b2a2fff3d5ce5e75582788a184db0205bde286504ccf695d428817",
+      "City_wise_raw_data_1Hr_2024_Faridabad_1Hr.csv": "1781b24c265786b1314309a7f8ceb812c5267183f77d4482aea3c008dd589830"
+    }
+  },
+  "dataset": {
+    "daily_rows": 2979,
+    "date_range": [
+      "2016-01-01",
+      "2024-12-31"
+    ],
+    "calendar_span_days": 3288,
+    "missing_days": 309,
+    "n_gaps": 123,
+    "longest_gap_days": 24,
+    "coverage_fraction": 0.906022,
+    "rows_with_complete_lag1": 2855,
+    "audit": {
+      "files_read": 9,
+      "hourly_rows_read": 78912,
+      "hourly_rows_used": 73481,
+      "rejections": {
+        "day_below_min_hours": 253,
+        "day_no_valid_observations": 56,
+        "non_numeric_pm25": 4695,
+        "pm25_out_of_range": 736
+      },
+      "days_excluded_duplicate": 0,
+      "days_excluded_insufficient_hours": 253,
+      "days_excluded_all_missing": 56,
+      "raw_start": "2016-01-01",
+      "raw_end": "2024-12-31",
+      "file_sha256": {
+        "City_wise_raw_data_1Hr_2016_Faridabad_1Hr.csv": "f581277b29c7fed9cff0074e85001d2ffbc99b2f1c22b61171d23c808290833f",
+        "City_wise_raw_data_1Hr_2017_Faridabad_1Hr.csv": "964f92cafecfb945190ec28d0bfa42f12eb32b4f5a4fa53aad3dcd76028859f9",
+        "City_wise_raw_data_1Hr_2018_Faridabad_1Hr.csv": "a0cef1ff94103f93ba6ae9d6145c3933a97d1338bff0dea3d18c166ec94ac9f4",
+        "City_wise_raw_data_1Hr_2019_Faridabad_1Hr.csv": "843e037c3fc66c17c5f56fcc0b7714df4b3c9793827b51c9f54ac1f23fdf6071",
+        "City_wise_raw_data_1Hr_2020_Faridabad_1Hr.csv": "a4605254b4e9a26657f7af5998518ffceb8a3a1b6aa09b632a4d6d0c07316273",
+        "City_wise_raw_data_1Hr_2021_Faridabad_1Hr.csv": "79bba1a4554360089b924b657b6c28307082dab5a1c136223c37c28e152bc67b",
+        "City_wise_raw_data_1Hr_2022_Faridabad_1Hr.csv": "c2999c6b76276928c3ac2f43f6d7ca9573e055e66e36b1e74313f46a00122049",
+        "City_wise_raw_data_1Hr_2023_Faridabad_1Hr.csv": "78c1ff47c4b2a2fff3d5ce5e75582788a184db0205bde286504ccf695d428817",
+        "City_wise_raw_data_1Hr_2024_Faridabad_1Hr.csv": "1781b24c265786b1314309a7f8ceb812c5267183f77d4482aea3c008dd589830"
+      }
+    }
+  },
+  "rules": {
+    "cpcb": {
+      "pm25_valid_min": 0.0,
+      "pm25_valid_max": 500.0,
+      "min_hours_per_day": 18,
+      "expected_hours_per_day": 24,
+      "duplicate_hour_policy": "exclude_day",
+      "require_whole_hour": true
+    },
+    "features": {
+      "calendar_aware_lags": true,
+      "pm25_lags": [
+        1,
+        2,
+        3,
+        7
+      ],
+      "rolling_windows": [
+        3,
+        7
+      ],
+      "rolling_min_periods": 1,
+      "cyclic_day_of_week": true,
+      "cyclic_month": true,
+      "use_station_meteorology": false,
+      "station_meteorology_columns": [
+        "AT (\u00b0C)",
+        "RH (%)",
+        "WS (m/s)",
+        "WD (deg)",
+        "RF (mm)",
+        "SR (W/mt2)",
+        "BP (mmHg)",
+        "VWS (m/s)"
+      ]
+    }
+  },
+  "outputs": {
+    "daily_csv": "data/processed/track_a_daily.csv",
+    "features_csv": "data/processed/track_a_features.csv"
+  }
+}

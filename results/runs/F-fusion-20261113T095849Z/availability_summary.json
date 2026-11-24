@@ -1,0 +1,102 @@
+{
+  "rows": 2979,
+  "date_range": [
+    "2016-01-01",
+    "2024-12-31"
+  ],
+  "requested_sources": [
+    "station_met",
+    "merra",
+    "aod"
+  ],
+  "missing_value_policy": "Preserve missing environmental observations as NaN. No forward-fill, interpolation or imputation is permitted; per-source observation flags and observation ages make the missingness visible instead.",
+  "per_source": {
+    "station_met": {
+      "availability_class": "station_local_unknown_availability",
+      "operational_eligible": false,
+      "requested": true,
+      "value_columns": [
+        "AT",
+        "RH",
+        "WS",
+        "WD",
+        "RF",
+        "TOT_RF",
+        "SR",
+        "VWS"
+      ],
+      "support_columns": [],
+      "fused_rows_observed": 2979,
+      "fused_rows_observed_fraction": 1.0,
+      "first_observed_date": "2016-01-01",
+      "last_observed_date": "2024-12-31",
+      "median_observation_age_days": 0.0,
+      "max_observation_age_days": 0.0,
+      "source_dates_outside_ground_calendar": 309,
+      "target_n_observed": 2979,
+      "target_n_unobserved": 0,
+      "target_mean_when_observed": 93.4273022301904,
+      "target_mean_when_unobserved": NaN,
+      "target_mean_difference": NaN,
+      "mann_whitney_p": null
+    },
+    "merra": {
+      "availability_class": "reanalysis",
+      "operational_eligible": false,
+      "requested": true,
+      "value_columns": [
+        "T2M_midday",
+        "TS_midday",
+        "QV2M_midday",
+        "U10M_midday",
+        "V10M_midday",
+        "SLP_midday"
+      ],
+      "support_columns": [],
+      "fused_rows_observed": 172,
+      "fused_rows_observed_fraction": 0.057737495803961064,
+      "first_observed_date": "2024-01-01",
+      "last_observed_date": "2024-06-20",
+      "median_observation_age_days": 11.5,
+      "max_observation_age_days": 194.0,
+      "source_dates_outside_ground_calendar": 0,
+      "target_n_observed": 172,
+      "target_n_unobserved": 2807,
+      "target_mean_when_observed": 106.92808267293037,
+      "target_mean_when_unobserved": 92.6000367381522,
+      "target_mean_difference": 14.328045934778174,
+      "mann_whitney_p": 7.007923016567833e-11
+    },
+    "aod": {
+      "availability_class": "observed_satellite",
+      "operational_eligible": false,
+      "requested": true,
+      "value_columns": [
+        "AOD"
+      ],
+      "support_columns": [
+        "aod_valid_pixels",
+        "aod_overpasses"
+      ],
+      "fused_rows_observed": 139,
+      "fused_rows_observed_fraction": 0.04665995300436388,
+      "first_observed_date": "2024-01-07",
+      "last_observed_date": "2024-06-18",
+      "median_observation_age_days": 16.5,
+      "max_observation_age_days": 196.0,
+      "source_dates_outside_ground_calendar": 0,
+      "target_n_observed": 139,
+      "target_n_unobserved": 2840,
+      "target_mean_when_observed": 105.34385349935748,
+      "target_mean_when_unobserved": 92.8440625730023,
+      "target_mean_difference": 12.499790926355175,
+      "mann_whitney_p": 3.849655164618953e-08
+    }
+  },
+  "rows_with_all_sources_observed": 139,
+  "fraction_with_all_sources_observed": 0.04665995300436388,
+  "rows_with_any_source_observed": 2979,
+  "rows_with_no_source_observed": 0,
+  "ground_rows": 2979,
+  "ground_calendar_preserved": true
+}
