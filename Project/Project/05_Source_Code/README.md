@@ -25,7 +25,7 @@ beats ground-only prediction, and its five-day "forecast" is a retrospective
 estimation rather than an operational forecast. Those are the open questions
 the two tracks exist to answer.
 
-> **Start here:** [`docs/README.md`](docs/README.md) (index of every document) ·
+> **Start here:** [`docs/README.md`](../../../docs/README.md) (index of every document) ·
 > `AGENTS.md` (engineering contract) · `docs/reports/REPOSITORY_AUDIT.md`
 > (audit) · `docs/reference/DEFECT_REGISTER.md` (defects) · `docs/reports/PHASE7_REPORT.md`
 > (matrix and its negative result) · `docs/reference/FEATURE_AVAILABILITY_CONTRACT.md`
