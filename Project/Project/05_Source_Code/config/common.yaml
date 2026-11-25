@@ -1,0 +1,33 @@
+# AeroSphinx shared configuration.
+#
+# Every value here is a scientific assumption or a data-handling rule.
+# Anything not recorded in this file must not be hard-coded in a module.
+
+project:
+  name: AeroSphinx
+  station:
+    name: Faridabad
+    # Faridabad CPCB monitoring station (Sector 16A), Haryana, Delhi-NCR.
+    latitude: 28.4089
+    longitude: 77.3178
+
+paths:
+  # Raw inputs are read-only. Never write into these directories.
+  cpcb_dir: data/cpcb
+  aod_dir: data/aod
+  merra_dir: data/merra2
+  # Derived artefacts.
+  processed_dir: data/processed
+  manifests_dir: data/manifests
+  results_dir: results
+  figures_dir: figures
+  models_dir: models
+
+# The raw CPCB export is a local-time (IST, UTC+05:30) naive timestamp with
+# no daylight-saving transition in the observation window. The daily
+# aggregation boundary is therefore the local calendar day.
+calendar:
+  timezone_note: "IST (UTC+05:30), naive local timestamps, no DST in window"
+  day_boundary: "local calendar day"
+
+random_seed: 42

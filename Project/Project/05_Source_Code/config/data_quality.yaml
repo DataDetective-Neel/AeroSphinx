@@ -1,0 +1,81 @@
+# Data-quality rules applied during ingestion.
+#
+# Every rule below is applied at ingestion and recorded in the run manifest.
+# The audit output must record the reason for every rejected record.
+
+cpcb:
+  # Column resolution. The export has been seen with several spellings, so the
+  # PM2.5 column is located by name rather than by position.
+  timestamp_column: "Timestamp"
+  pm25_column_candidates:
+    - "PM2.5 (µg/m³)"
+    - "PM2.5 (ug/m3)"
+    - "PM25"
+
+  # Physical validity window for an hourly PM2.5 reading, in ug/m3.
+  # Values outside this range are treated as instrument faults and set to
+  # missing rather than clipped.
+  pm25_valid_min: 0.0
+  pm25_valid_max: 500.0
+
+  # A daily mean is accepted only when at least this many valid hourly
+  # readings are present. 18 of 24 hours = 75% coverage.
+  min_hours_per_day: 18
+
+  # Expected hours in a complete local day, used to report coverage.
+  expected_hours_per_day: 24
+
+  # Duplicate policy. CPCB files are partitioned by year, so the same
+  # timestamp should never appear twice. If it does, the duplicate is
+  # reported and the day is excluded from the daily mean rather than
+  # silently double-weighted.
+  duplicate_hour_policy: "exclude_day"
+
+  # Records with an unparseable timestamp are rejected and counted.
+  on_unparseable_timestamp: "reject"
+
+  # Hours are expected on the hour. Off-grid timestamps are flagged.
+  require_whole_hour: true
+
+  # Plausibility screen for the station-local meteorological columns, in
+  # their own units.
+  #
+  # The Phase 5 physical cross-validation of MERRA-2 against the station
+  # found that the CPCB barometric-pressure column fails three independent
+  # checks: it contains daily means above 800 mmHg (up to 1062 mmHg =
+  # 1416 hPa, which exceeds sea-level pressure at sea level) on 107 days; it
+  # anti-correlates with the MERRA-2 surface pressure at the same site; and
+  # its diurnal maximum falls at 10h rather than near dawn as surface
+  # pressure must. The other eight columns pass their screens.
+  station_met_valid_ranges:
+    "AT (°C)": [-20.0, 55.0]
+    "RH (%)": [0.0, 100.0]
+    "WS (m/s)": [0.0, 60.0]
+    "WD (deg)": [0.0, 360.0]
+    "RF (mm)": [0.0, 300.0]
+    "TOT-RF (mm)": [0.0, 500.0]
+    "SR (W/mt2)": [0.0, 1500.0]
+    "BP (mmHg)": [650.0, 800.0]
+    "VWS (m/s)": [-50.0, 50.0]
+
+  # Columns excluded from the station-local feature group. The barometric
+  # pressure column fails the physical cross-validation described above and
+  # is therefore not used as a feature.
+  station_met_excluded_columns:
+    - "BP (mmHg)"
+
+insat_aod:
+  fill_value: -999.0
+  aod_valid_min: 0.0
+  aod_valid_max: 5.0
+  # Half-width of the square collocation window around the station.
+  collocation_window_deg: 0.25
+
+merra:
+  # Requested variables. PBLH is requested but is absent from every
+  # locally distributed granule; the loader must report that rather than
+  # substitute a proxy.
+  requested_variables: ["T2M", "TS", "QV2M", "U10M", "V10M", "SLP", "PBLH"]
+  # No fallbacks are permitted: PBLTOP is a pressure, not a boundary layer
+  # height, and substituting it would create an invalid feature.
+  fallbacks: {}

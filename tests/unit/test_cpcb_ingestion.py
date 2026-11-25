@@ -86,6 +86,7 @@ def test_aggregation_is_independent_of_file_split(cpcb_factory, tmp_path, rules)
     cpcb_factory("all.csv", rows)
     single = load_cpcb_daily(tmp_path / "cpcb", rules)
     single_value = single.frame.iloc[0]["PM25"]
+    single.frame.to_csv("/dev/null", index=False)
 
     # Same hours split across two files.
 

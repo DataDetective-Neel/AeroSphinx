@@ -1,0 +1,15 @@
+PASS  track_a_persistence_mae              MAE where {'track': 'A', 'config': 'M0', 'model': 'persistence'}: artefact 22.090113619756167 matches the registry; README carries '22.09'
+PASS  track_a_ridge_mae                    MAE where {'track': 'A', 'config': 'M1', 'model': 'ridge'}: artefact 21.441733245471436 matches the registry; README carries '21.44'
+PASS  track_a_n_predictions                n where {'track': 'A', 'config': 'M1', 'model': 'ridge'}: artefact 2615 matches the registry; README carries '2,615'
+PASS  track_a_ridge_delta                  delta_MAE where {'track': 'A', 'config': 'M1', 'reference': 'M0'}: artefact -0.6483803743 matches the registry; README carries '-0.65'
+PASS  track_b_persistence_mae              MAE where {'track': 'B', 'config': 'M0', 'model': 'persistence'}: artefact 22.97931163537549 matches the registry; README carries '22.98'
+PASS  track_b_ridge_mae                    MAE where {'track': 'B', 'config': 'M1', 'model': 'ridge'}: artefact 28.589943953528223 matches the registry; README carries '28.59'
+PASS  track_b_ridge_vs_persistence_common  delta_MAE where {'track': 'B', 'config': 'M1', 'reference': 'M0'}: artefact -0.2473239441 matches the registry; README carries '-0.25'
+PASS  track_b_aod_delta                    delta_MAE where {'track': 'B', 'config': 'M2', 'reference': 'M1'}: artefact 0.2056574777 matches the registry; README carries '0.21'
+PASS  track_b_merra_delta                  delta_MAE where {'track': 'B', 'config': 'M3', 'reference': 'M1'}: artefact 4.239472548 matches the registry; README carries '4.24'
+PASS  track_b_fusion_delta                 delta_MAE where {'track': 'B', 'config': 'M4', 'reference': 'M1'}: artefact 4.701906042 matches the registry; README carries '4.70'
+PASS  track_b_common_dates                 n where {'track': 'B', 'config': 'M4', 'reference': 'M1'}: artefact 49 matches the registry; README carries '49 dates'
+PASS  fusion_aod_observed_rows             coverage.2.observed_rows: artefact 139 matches the registry; README carries '139'
+PASS  fusion_ground_rows                   coverage.0.observed_rows: artefact 2979 matches the registry; README carries '2,979'
+
+13 of 13 claims verified against results/experiment_matrix/ (run matrix-20261123) and results/alignment/.

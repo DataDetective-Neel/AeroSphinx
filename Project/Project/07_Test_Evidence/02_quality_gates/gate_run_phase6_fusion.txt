@@ -1,0 +1,56 @@
+[1/5] reading the ground series and the three environmental sources
+      ground: 2979 rows, 2016-01-01 -> 2024-12-31
+      station_met: 3288 accepted days
+      merra:       172 days
+      aod:         166 days (27 with no valid pixel)
+
+[2/5] fusing on the ground calendar (no fill, no imputation)
+      2979 rows, 42 columns
+      policy: Missing environmental observations are preserved as NaN. No forward-fill, interpolation or imputation is permitted. Per-source <source>_observed flags and <source>_observation_age_days columns make the missingness visible instead of manufacturing a value.
+
+[3/5] running the Phase 6 alignment gate
+      PASS  dates_are_unique: 0 duplicate dates
+      PASS  dates_are_chronological: the fused frame is sorted by date
+      PASS  row_count_matches_ground_series: 2979 fused rows against 2979 ground rows
+      PASS  ground_calendar_preserved: 0 extended dates, 0 dropped dates
+      PASS  target_preserved: 0 target values changed by the fusion
+      PASS  station_met:value_without_observation_flag: 0 rows carry a value without being flagged observed
+      PASS  station_met:observation_flag_without_value: 0 rows are flagged observed without a value
+      PASS  station_met:observation_age_is_consistent: the observation age is 0 exactly on observed rows and is never used to supply a value
+      PASS  merra:value_without_observation_flag: 0 rows carry a value without being flagged observed
+      PASS  merra:observation_flag_without_value: 0 rows are flagged observed without a value
+      PASS  merra:observation_age_is_consistent: the observation age is 0 exactly on observed rows and is never used to supply a value
+      PASS  aod:value_without_observation_flag: 0 rows carry a value without being flagged observed
+      PASS  aod:observation_flag_without_value: 0 rows are flagged observed without a value
+      PASS  aod:observation_age_is_consistent: the observation age is 0 exactly on observed rows and is never used to supply a value
+      PASS  aod:support_counts_are_non_negative_integers: pixel and overpass counts are non-negative integers
+      PASS  aod:value_requires_a_valid_pixel: every AOD value is supported by at least one valid pixel
+      PASS  station_met:same_day_provenance:AT: 0 rows differ from the source record on the same date
+      PASS  station_met:same_day_provenance:RH: 0 rows differ from the source record on the same date
+      PASS  station_met:same_day_provenance:WS: 0 rows differ from the source record on the same date
+      PASS  station_met:same_day_provenance:WD: 0 rows differ from the source record on the same date
+      PASS  station_met:same_day_provenance:RF: 0 rows differ from the source record on the same date
+      PASS  station_met:same_day_provenance:TOT_RF: 0 rows differ from the source record on the same date
+      PASS  station_met:same_day_provenance:SR: 0 rows differ from the source record on the same date
+      PASS  station_met:same_day_provenance:VWS: 0 rows differ from the source record on the same date
+      PASS  merra:same_day_provenance:T2M_midday: 0 rows differ from the source record on the same date
+      PASS  merra:same_day_provenance:TS_midday: 0 rows differ from the source record on the same date
+      PASS  merra:same_day_provenance:QV2M_midday: 0 rows differ from the source record on the same date
+      PASS  merra:same_day_provenance:U10M_midday: 0 rows differ from the source record on the same date
+      PASS  merra:same_day_provenance:V10M_midday: 0 rows differ from the source record on the same date
+      PASS  merra:same_day_provenance:SLP_midday: 0 rows differ from the source record on the same date
+      PASS  aod:same_day_provenance:AOD: 0 rows differ from the source record on the same date
+      PASS  aod:same_day_provenance:aod_valid_pixels: 0 source rows differ; 0 absent rows carry non-zero support
+      PASS  aod:same_day_provenance:aod_overpasses: 0 source rows differ; 0 absent rows carry non-zero support
+      33 checks, 0 failed
+      Phase 6 gate: PASS
+
+[4/5] availability by source
+      station_met  observed 2979 rows (100.0%), target mean observed 93.43 vs unobserved nan, max age 0.0
+      merra        observed  172 rows (5.8%), target mean observed 106.93 vs unobserved 92.60, max age 194.0
+      aod          observed  139 rows (4.7%), target mean observed 105.34 vs unobserved 92.84, max age 196.0
+      rows with all 3 sources: 139 (4.7%)
+      rows with no environmental source: 0
+
+[5/5] wrote data/processed/fused_dataset.csv
+      wrote results/runs/F-fusion-20261124T163523Z/

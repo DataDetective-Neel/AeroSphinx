@@ -1,0 +1,56 @@
+
+> ui@0.0.0 lint
+> oxlint
+
+
+  ! react(only-export-components): Fast refresh only works when a file has exports. Move your component(s) to a separate file.
+    ,-[src/main.tsx:72:10]
+ 71 | 
+ 72 | function RouteFallback() {
+    :          ^^^^^^^^^^^^^
+ 73 |   return (
+    `----
+
+  ! react(only-export-components): Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components.
+    ,-[src/lib/theme.tsx:48:17]
+ 47 | 
+ 48 | export function useTheme() {
+    :                 ^^^^^^^^
+ 49 |   const ctx = useContext(ThemeContext);
+    `----
+
+  ! react(only-export-components): Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components.
+     ,-[src/components/ui/primitives.tsx:221:17]
+ 220 | 
+ 221 | export function formatNumber(value: number | null | undefined, digits = 2) {
+     :                 ^^^^^^^^^^^^
+ 222 |   if (value === null || value === undefined || Number.isNaN(value)) return "—";
+     `----
+
+  ! react(only-export-components): Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components.
+     ,-[src/components/ui/primitives.tsx:231:17]
+ 230 |  */
+ 231 | export function formatUtc(iso: string | null | undefined): string {
+     :                 ^^^^^^^^^
+ 232 |   if (!iso) return "—";
+     `----
+
+  ! react(only-export-components): Fast refresh only works when a file only exports components. Use a new file to share constants or functions between components.
+     ,-[src/components/ui/primitives.tsx:242:17]
+ 241 | 
+ 242 | export function formatPct(fraction: number | null | undefined, digits = 1) {
+     :                 ^^^^^^^^^
+ 243 |   if (fraction === null || fraction === undefined) return "—";
+     `----
+
+  ! typescript(no-this-alias): Unexpected aliasing of 'this' to local variable.
+     ,-[src/test/modules.test.tsx:263:9]
+ 262 |         super(parts, opts);
+ 263 |         captured = this;
+     :         ^^^^^^^^
+ 264 |       }
+     `----
+  help: Assigning a variable to this instead of properly using arrow lambdas may be a symptom of pre-ES2015 practices or not managing scope well.
+
+Found 6 warnings and 0 errors.
+Finished in 26ms on 26 files with 116 rules using 2 threads.

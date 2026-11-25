@@ -1,6 +1,0 @@
-Date,horizon_day,predicted_PM25,predicted_AQI_class,meteorology_source
-2024-06-22,1,97.04657552709477,Poor,persisted from 2024-06-21
-2024-06-23,2,110.99653925680295,Poor,persisted from 2024-06-21
-2024-06-24,3,119.40707909664306,Poor,persisted from 2024-06-21
-2024-06-25,4,126.84014081357662,Very Poor,persisted from 2024-06-21
-2024-06-26,5,134.61165030711322,Very Poor,persisted from 2024-06-21

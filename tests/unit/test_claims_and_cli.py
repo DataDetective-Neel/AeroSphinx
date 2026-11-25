@@ -9,7 +9,6 @@ numbers no artefact produced, and a season table published an R2 on two days.
 from __future__ import annotations
 
 import json
-import os
 import re
 import subprocess
 import sys
@@ -100,7 +99,7 @@ def test_cli_reports_a_version():
         capture_output=True,
         text=True,
         cwd=ROOT,
-        env={**os.environ, "PYTHONPATH": str(ROOT / "src"), "PATH": os.defpath},
+        env={"PYTHONPATH": str(ROOT / "src"), "PATH": "/usr/bin:/bin"},
         check=False,
     )
     assert result.returncode == 0, result.stderr
@@ -113,7 +112,7 @@ def test_cli_without_a_subcommand_prints_help():
         capture_output=True,
         text=True,
         cwd=ROOT,
-        env={**os.environ, "PYTHONPATH": str(ROOT / "src"), "PATH": os.defpath},
+        env={"PYTHONPATH": str(ROOT / "src"), "PATH": "/usr/bin:/bin"},
         check=False,
     )
     assert result.returncode == 0

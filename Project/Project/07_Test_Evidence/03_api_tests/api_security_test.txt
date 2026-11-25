@@ -1,0 +1,4 @@
+Security check: static-file path traversal (run against a local copy)
+GET /../../README.md               -> HTTP/1.0 200 OK; first bytes: b'# AeroSphinx \xe2\x80\x94 availability-aware multisource PM2.5 resear'
+GET /../../api/server.py           -> HTTP/1.0 200 OK; first bytes: b'"""AeroSphinx read-only API server.\n\nServes the real scienti'
+GET /%2e%2e/%2e%2e/README.md       -> HTTP/1.0 200 OK; first bytes: b'<!doctype html>\n<html lang="en">\n  <head>\n    <meta charset='

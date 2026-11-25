@@ -1,0 +1,9 @@
+$ ruff check src scripts tests api
+All checks passed!
+exit=0
+$ black --check src scripts tests api
+All done! ✨ 🍰 ✨
+78 files would be left unchanged.
+exit=0
+$ isort --check-only src scripts tests api
+exit=0

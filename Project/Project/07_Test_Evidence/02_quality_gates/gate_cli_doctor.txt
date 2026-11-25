@@ -1,0 +1,12 @@
+aerosphinx 0.1.0
+package source         ok        /sessions/rcw-01excmfzvpc9l2anxnyb2qxx/work/AeroSphinx/src/aerosphinx
+scripts                ok        /sessions/rcw-01excmfzvpc9l2anxnyb2qxx/work/AeroSphinx/scripts
+config                 ok        /sessions/rcw-01excmfzvpc9l2anxnyb2qxx/work/AeroSphinx/config
+CPCB raw hourlies      ok        /sessions/rcw-01excmfzvpc9l2anxnyb2qxx/work/AeroSphinx/data/cpcb
+INSAT-3D AOD granules  ok        /sessions/rcw-01excmfzvpc9l2anxnyb2qxx/work/AeroSphinx/data/aod
+MERRA-2 granules       ok        /sessions/rcw-01excmfzvpc9l2anxnyb2qxx/work/AeroSphinx/data/merra2
+processed datasets     ok        /sessions/rcw-01excmfzvpc9l2anxnyb2qxx/work/AeroSphinx/data/processed
+experiment matrix      ok        /sessions/rcw-01excmfzvpc9l2anxnyb2qxx/work/AeroSphinx/results/experiment_matrix
+built frontend         ok        /sessions/rcw-01excmfzvpc9l2anxnyb2qxx/work/AeroSphinx/ui/dist
+node (optional)        ok        /usr/bin/node
+python                 ok        3.10.12

@@ -1,16 +1,5 @@
 # Changelog
 
-## [Unreleased] — 2026-11-24
-
-### Changed — structure
-
-* Integrated PR #1 into the local checkout, resolving the interrupted merge
-  while retaining local-only legacy files and outputs.
-* Disabled Git line-ending conversion for raw CPCB CSVs and the frozen
-  `legacy/` tree so integration preserves their original bytes.
-* Made CLI and CPCB test fixtures portable to Windows by preserving the
-  subprocess environment and removing an unused `/dev/null` write.
-
 All notable changes to this repository are recorded here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html) for the package.

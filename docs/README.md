@@ -35,7 +35,6 @@ appended as dated revisions, never edited into the original text.
 | [MULTISOURCE_SEASONAL_FORECAST_AUDIT.md](reports/MULTISOURCE_SEASONAL_FORECAST_AUDIT.md) | Independent review of the multisource design |
 | [CHAPTER_CORRECTIONS.md](reports/CHAPTER_CORRECTIONS.md) | Where the chapter text and the code disagree |
 | [CHAPTER_DRAFT.md](reports/CHAPTER_DRAFT.md) | Book chapter draft |
-| [PR1_INTEGRATION_2026-11-24.md](reports/PR1_INTEGRATION_2026-11-24.md) | Latest PR integration, preservation and Windows validation |
 
 ## Figures and screenshots
 

@@ -1,0 +1,11 @@
+
+ RUN  v5.1.0 /sessions/rcw-01excmfzvpc9l2anxnyb2qxx/work/AeroSphinx/ui
+
+Not implemented: navigation to another Document
+ ✓ src/test/modules.test.tsx (26 tests) 1008ms
+
+ Test Files  1 passed (1)
+      Tests  26 passed (26)
+   Start at  16:38:58
+   Duration  2.08s (tests 51%, transform 19%, environment 19%, import 7%, setup 5%)
+

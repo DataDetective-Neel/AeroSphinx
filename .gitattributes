@@ -27,7 +27,3 @@
 data/**/*.csv  -diff
 data/**/*.h5   -diff
 data/**/*.nc   -diff
-
-# Preserve provider inputs and the frozen research record byte for byte.
-data/cpcb/*.csv -text
-legacy/**      -text
